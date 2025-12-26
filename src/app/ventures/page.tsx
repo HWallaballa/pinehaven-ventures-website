@@ -41,6 +41,19 @@ export default function Ventures() {
         'Collaborative development environment'
       ],
       status: 'In Development'
+    },
+    {
+      id: 'multi-gmail-unsubscribe',
+      title: 'Multi-Gmail Unsubscribe Assistant',
+      subtitle: 'Subscription Cleanup for Multiple Inboxes',
+      description: 'A secure web app that connects multiple Gmail accounts via OAuth, scans recent messages for subscription signals, and safely guides users through one-click, mailto, or confirmed GET unsubscribes with clear previews and protections.',
+      features: [
+        'Connect and manage multiple Gmail accounts in one dashboard',
+        'Detect subscriptions via List-Unsubscribe headers with method prioritization',
+        'Preview destination domain and method before unsubscribe actions',
+        'Secure token storage, CSRF protection, and rate-limited scans'
+      ],
+      status: 'Concept Stage'
     }
   ];
 
@@ -136,6 +149,9 @@ export default function Ventures() {
                           )}
                           {venture.id === 'powerdevs' && (
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                          )}
+                          {venture.id === 'multi-gmail-unsubscribe' && (
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89-2.63a2 2 0 011.22 0L20 8m-2 4v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4m12 0l-6 4-6-4" />
                           )}
                         </svg>
                       </div>
