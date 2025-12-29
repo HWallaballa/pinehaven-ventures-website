@@ -2,17 +2,92 @@ import Navigation from '../../components/Navigation';
 import Link from 'next/link';
 
 export default function PowerPMIS() {
+  const mvpModules = [
+    {
+      title: 'Capture-to-Model',
+      description: 'Ingest LiDAR, photogrammetry, or drone scans and auto-align them to project control.',
+      highlights: [
+        'iOS/Android capture + file uploads (LAS/LAZ/OBJ)',
+        'Geo-registration with control-point mapping',
+        'Versioned scans with date-based comparisons'
+      ]
+    },
+    {
+      title: 'Quantities & Estimation',
+      description: 'Generate quantities from scans and convert them into defensible cost estimates.',
+      highlights: [
+        'Automated take-offs (earthwork, slab, trench, façade)',
+        'Editable cost libraries with regional factors',
+        'Scenario modeling and export-ready summaries'
+      ]
+    },
+    {
+      title: 'WBS & Cost Allocation',
+      description: 'Map quantities to WBS codes and split shared costs without spreadsheets.',
+      highlights: [
+        'Drag-and-drop WBS builder with templates',
+        'Rule-based allocations by area, length, or percent',
+        'Audit-ready change history'
+      ]
+    },
+    {
+      title: 'Executive Dashboards',
+      description: 'Turn field reality into portfolio insights in one place.',
+      highlights: [
+        'Budget vs. EAC, earned value, and variance',
+        'Scan recency & progress indicators',
+        'Export to PowerBI or Excel'
+      ]
+    }
+  ];
+
+  const mvpOutcomes = [
+    {
+      title: 'Week 0-2: Onboard & Configure',
+      items: [
+        'Connect cost libraries, WBS templates, and project metadata',
+        'Set up capture workflows and scan storage',
+        'Define reporting formats and approval gates'
+      ]
+    },
+    {
+      title: 'Week 2-6: Capture & Quantify',
+      items: [
+        'Collect scans and auto-register them to control points',
+        'Generate quantities with automated take-offs',
+        'Validate quantities with field annotations'
+      ]
+    },
+    {
+      title: 'Week 6-10: Estimate & Report',
+      items: [
+        'Finalize estimates with scenario modeling',
+        'Allocate costs by WBS and shared scopes',
+        'Deliver executive dashboards and exports'
+      ]
+    }
+  ];
+
+  const mvpDeliverables = [
+    'Capture, upload, and version scans across multiple sites',
+    'Generate quantities and cost estimates in hours instead of days',
+    'Map quantities to customer-specific WBS structures',
+    'Produce audit-ready allocation and approval reports',
+    'Share dashboards with executives and owners'
+  ];
+
   const featureCategories = [
     {
       id: 'capture',
       title: '3D Capture & Reality Data',
       icon: '📷',
-      description: 'Reduces survey costs, keeps stakeholders visually aligned on site progress.',
+      status: 'MVP-ready',
+      description: 'Reduces survey costs and keeps stakeholders visually aligned on site progress.',
       features: [
         'Multi-source scanning (LiDAR-equipped iOS/Android, photogrammetry, drone & terrestrial LiDAR imports)',
         'On-device meshing & compression (USDZ/glTF)',
-        'Automatic control-point detection & geo-registration',
-        'Versioned point-cloud management with differencing ("show me cut/fill delta vs. last week")',
+        'Control-point mapping and geo-registration tools',
+        'Versioned point-cloud management with scan comparisons',
         'Scan scheduler & recency alerts'
       ]
     },
@@ -20,7 +95,8 @@ export default function PowerPMIS() {
       id: 'estimation',
       title: 'Quantity Take-Off & Cost Estimation',
       icon: '📊',
-      description: 'Generates defensible estimates in minutes, not days.',
+      status: 'MVP-ready',
+      description: 'Generates defensible estimates faster while keeping audit trails intact.',
       features: [
         'Automated geometry analyzers (earthwork, trench, slab, MEP penetrations, façade areas, structural steel)',
         'Customizable cost libraries (RSMeans import, regional factors, vendor quotes)',
@@ -33,18 +109,20 @@ export default function PowerPMIS() {
       id: 'allocation',
       title: 'Cost Allocation Engine',
       icon: '💰',
+      status: 'MVP-ready',
       description: 'Handles complex campus developments without spreadsheet gymnastics.',
       features: [
         'Rule-based splits (percentage, area, linear feet, custom formulas)',
         'Multi-project shared-cost pools (e.g., common sitework for two data centers)',
         'Approval workflow & audit trail',
-        'Predictive allocation suggestions via ML (Phase 2)'
+        'Predictive allocation suggestions via ML (planned)'
       ]
     },
     {
       id: 'wbs',
       title: 'Work Breakdown Structure (WBS) Management',
       icon: '🏗️',
+      status: 'MVP-ready',
       description: 'Lets each customer keep their own coding standards while the system stays normalized.',
       features: [
         'Import parsers (Primavera XER, MS Project XML, Excel, JSON)',
@@ -58,18 +136,20 @@ export default function PowerPMIS() {
       id: 'integrations',
       title: 'Project-Management Integrations',
       icon: '🔗',
+      status: 'Roadmap',
       description: 'Eliminates double-entry and keeps the field & office in lock-step.',
       features: [
-        'One-way & two-way sync with Procore (Budgets, Drawings, RFIs, Observations, Docs)',
+        'One-way export to Procore (budgets, RFIs, docs) in early pilots',
         'Webhook events (estimate approved ➝ create budget revisions)',
         'Connectors marketplace (Primavera P6, Aconex, SAP, Owner ERPs)',
-        'Deep links—click from Procore line-item to open exact 3D scan region'
+        'Deep links from line-items to 3D scan regions'
       ]
     },
     {
       id: 'portfolio',
       title: 'Portfolio & Reporting',
       icon: '📈',
+      status: 'MVP-ready',
       description: 'Gives executives one glass pane for all builds, not 50 spreadsheets.',
       features: [
         'Portfolio dashboard (budget vs. EAC, earned value, scan status, safety metrics)',
@@ -82,6 +162,7 @@ export default function PowerPMIS() {
       id: 'collaboration',
       title: 'Collaboration & Communication',
       icon: '👥',
+      status: 'Roadmap',
       description: 'Keeps context, decisions and approvals in one place.',
       features: [
         'Role-based permissions down to cost-code level',
@@ -95,6 +176,7 @@ export default function PowerPMIS() {
       id: 'offline',
       title: 'Offline & Edge Capability',
       icon: '📡',
+      status: 'Roadmap',
       description: 'Critical for remote sites with spotty signal.',
       features: [
         'Offline scan capture, costing & WBS edit',
@@ -106,6 +188,7 @@ export default function PowerPMIS() {
       id: 'ai',
       title: 'AI & Advanced Analytics',
       icon: '🤖',
+      status: 'Exploration',
       description: 'Turns piles of data into next-step intelligence.',
       features: [
         'Object recognition (identify generators, trench boxes, rebar bundles)',
@@ -118,6 +201,7 @@ export default function PowerPMIS() {
       id: 'platform',
       title: 'Developer & Integration Platform',
       icon: '⚙️',
+      status: 'Roadmap',
       description: 'Enables clients and third parties to build on top of the platform.',
       features: [
         'REST & GraphQL APIs (projects, scans, costs, WBS)',
@@ -130,6 +214,7 @@ export default function PowerPMIS() {
       id: 'security',
       title: 'Administration & Security',
       icon: '🔒',
+      status: 'Roadmap',
       description: 'Meets enterprise IT and owner compliance checklists.',
       features: [
         'SSO/SAML, MFA, SCIM user-provisioning',
@@ -143,17 +228,19 @@ export default function PowerPMIS() {
       id: 'performance',
       title: 'Performance & Scalability',
       icon: '⚡',
-      description: 'Ensures the platform doesn\'t choke when adoption spikes.',
+      status: 'Roadmap',
+      description: 'Ensures the platform keeps pace as adoption grows.',
       features: [
-        '1 GB upload < 3 min on 5G',
-        'Render 50M points at 30 fps on iPad Pro',
-        'Horizontal scale to 200 active projects & 10 TB of scans Year 1'
+        'Target upload performance tuned for large field scans',
+        'Progressive rendering for large point clouds on tablets',
+        'Scale targets for multi-project portfolios'
       ]
     },
     {
       id: 'support',
       title: 'Support & Success',
       icon: '🎯',
+      status: 'MVP-ready',
       description: 'Drives user satisfaction and accelerates ROI.',
       features: [
         'In-app guided tours & tooltips',
@@ -225,16 +312,107 @@ export default function PowerPMIS() {
         </div>
       </section>
 
+      {/* MVP Focus */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <span className="inline-flex items-center gap-2 px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-semibold">
+              MVP Focus
+            </span>
+            <h2 className="text-3xl font-bold text-gray-900 mt-4 mb-4">
+              Building the MVP Around What Owners Need Most
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              The MVP centers on the workflows that create immediate ROI: capture, quantify, estimate, and report. 
+              These modules deliver a complete loop from field reality to executive decisions.
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-8">
+            {mvpModules.map((module) => (
+              <div key={module.title} className="border border-gray-200 rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow">
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">{module.title}</h3>
+                <p className="text-gray-600 mb-6">{module.description}</p>
+                <ul className="space-y-3">
+                  {module.highlights.map((highlight) => (
+                    <li key={highlight} className="flex items-start gap-3 text-gray-700">
+                      <svg className="w-4 h-4 text-blue-600 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                      </svg>
+                      <span>{highlight}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* MVP Timeline */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              MVP Delivery Roadmap
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              A structured path from onboarding to repeatable project execution. Each milestone is built to validate 
+              speed, accuracy, and adoption with pilot customers.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            {mvpOutcomes.map((outcome) => (
+              <div key={outcome.title} className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">{outcome.title}</h3>
+                <ul className="space-y-3 text-gray-600">
+                  {outcome.items.map((item) => (
+                    <li key={item} className="flex items-start gap-3">
+                      <span className="mt-1 h-2 w-2 rounded-full bg-blue-500"></span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* MVP Deliverables */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+        <div className="max-w-5xl mx-auto">
+          <div className="bg-blue-50 border border-blue-100 rounded-2xl p-8">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">
+              What the MVP Delivers on Day One
+            </h2>
+            <p className="text-gray-600 mb-6">
+              PowerPMIS MVP is designed to be production-ready for pilot projects with clear, measurable outcomes.
+            </p>
+            <ul className="grid md:grid-cols-2 gap-4 text-gray-700">
+              {mvpDeliverables.map((deliverable) => (
+                <li key={deliverable} className="flex items-start gap-3">
+                  <svg className="w-5 h-5 text-blue-600 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span>{deliverable}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
       {/* Features Grid */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Comprehensive Feature Set
+              Full Platform Vision
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Every feature a power-user could ask for. Built for enterprises that demand 
-              complete visibility and control over their construction operations.
+              Once the MVP proves ROI, PowerPMIS expands into a full enterprise platform covering every 
+              stage of construction intelligence.
             </p>
           </div>
 
@@ -244,9 +422,14 @@ export default function PowerPMIS() {
                 <div className="flex items-start gap-4 mb-6">
                   <div className="text-3xl">{category.icon}</div>
                   <div className="flex-1">
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">
-                      {category.title}
-                    </h3>
+                    <div className="flex flex-wrap items-center gap-3 mb-2">
+                      <h3 className="text-xl font-bold text-gray-900">
+                        {category.title}
+                      </h3>
+                      <span className="text-xs font-semibold uppercase tracking-wide px-2.5 py-1 rounded-full bg-gray-100 text-gray-700">
+                        {category.status}
+                      </span>
+                    </div>
                     <p className="text-blue-600 font-medium mb-4">
                       {category.description}
                     </p>
