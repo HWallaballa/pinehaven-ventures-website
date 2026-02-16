@@ -25,6 +25,13 @@ export default function Home() {
       tag: 'From $29/mo',
       tagColor: 'bg-purple-100 text-purple-800',
     },
+    {
+      href: '/ventures/crypto-transaction-log',
+      title: 'Crypto Transaction Log',
+      desc: 'Upload CSV and XLS files from any exchange, track, analyze, and export your crypto transactions — all in one place across iOS, Android, and web.',
+      tag: 'Free / Premium',
+      tagColor: 'bg-orange-100 text-orange-800',
+    },
   ];
 
   return (
@@ -68,11 +75,11 @@ export default function Home() {
               Our Product Portfolio
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Three live products serving energy markets, data center developers, and content creators.
+              Four live products serving energy markets, data center developers, content creators, and crypto investors.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {products.map((product) => (
               <Link
                 key={product.href}
@@ -107,7 +114,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-4 gap-8 text-center">
             <div>
-              <p className="text-3xl font-bold text-gray-900">3</p>
+              <p className="text-3xl font-bold text-gray-900">4</p>
               <p className="text-gray-600 text-sm mt-1">Live Products</p>
             </div>
             <div>

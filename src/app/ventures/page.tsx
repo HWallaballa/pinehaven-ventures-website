@@ -66,6 +66,27 @@ export default function Ventures() {
       gradientFrom: 'from-purple-50',
       gradientTo: 'to-violet-100',
     },
+    {
+      id: 'crypto-transaction-log',
+      title: 'Crypto Transaction Log',
+      subtitle: 'Cross-Exchange Crypto Portfolio Tracking',
+      description: 'Upload CSV and XLS files from any exchange and have them automatically converted into a unified crypto transaction log. Track, analyze, search, sort, and export your transactions across all exchanges — available on iOS, Android, and web. Built for crypto investors and traders who need a single source of truth for their portfolio activity.',
+      features: [
+        'Import CSV/XLS files from any crypto exchange automatically',
+        'Track transactions across multiple exchanges in one place',
+        'Filter by exchange, date range, and transaction type',
+        'Export combined reports for tax prep and portfolio analysis',
+      ],
+      pricing: 'Free / Premium',
+      pricingColor: 'bg-orange-100 text-orange-800',
+      status: 'Live',
+      statusColor: 'bg-green-100 text-green-800',
+      icon: (
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+      ),
+      gradientFrom: 'from-orange-50',
+      gradientTo: 'to-amber-100',
+    },
   ];
 
   return (
@@ -79,7 +100,7 @@ export default function Ventures() {
             Our <span className="text-blue-600">Products</span>
           </h1>
           <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
-            Three live SaaS products serving energy markets, data center developers, and content creators.
+            Four live SaaS products serving energy markets, data center developers, content creators, and crypto investors.
             Each product solves a real problem with a clear path to revenue.
           </p>
         </div>
@@ -160,7 +181,7 @@ export default function Ventures() {
             Ready to Get Started?
           </h2>
           <p className="text-lg text-gray-600 mb-8">
-            Whether you need energy market intelligence or AI content creation tools,
+            Whether you need energy market intelligence, AI content creation tools, or crypto portfolio tracking,
             we have a product for you.
           </p>
           <Link
