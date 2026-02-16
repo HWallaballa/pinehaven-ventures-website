@@ -4,77 +4,88 @@ import Link from 'next/link';
 export default function Ventures() {
   const ventures = [
     {
-      id: 'powerpmis',
-      title: 'PowerPMIS',
-      subtitle: 'Project Management Intelligence System',
-      description: 'A comprehensive project management platform designed to streamline complex workflows and enhance team collaboration. PowerPMIS combines intelligent automation with intuitive interfaces to help organizations manage projects more effectively, track progress in real-time, and make data-driven decisions.',
+      id: 'power-digital',
+      title: 'Power Digital Intelligence',
+      subtitle: 'Institutional Data Center Market Intelligence',
+      description: 'The definitive intelligence platform for institutional investors, developers, and utilities tracking the data center energy market. Power Digital aggregates interconnection queue data, capacity pipelines, and market signals into a single dashboard — giving you an unfair advantage in site selection, deal sourcing, and market timing.',
       features: [
-        'Real-time project tracking and analytics',
-        'Intelligent task automation and scheduling',
-        'Advanced team collaboration tools',
-        'Customizable dashboards and reporting'
+        'Real-time ERCOT interconnection queue tracking with MW-level detail',
+        'Data center capacity pipeline monitoring across major markets',
+        'Market intelligence reports and trend analysis',
+        'Custom alerts for queue movements and new filings',
       ],
-      status: 'In Development'
+      pricing: '$10,000/year',
+      pricingColor: 'bg-green-100 text-green-800',
+      status: 'Live',
+      statusColor: 'bg-green-100 text-green-800',
+      icon: (
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+      ),
+      gradientFrom: 'from-green-50',
+      gradientTo: 'to-emerald-100',
     },
     {
-      id: 'cryptotransactionlog',
-      title: 'CryptoTransactionLog',
-      subtitle: 'Blockchain Transaction Management',
-      description: 'A secure and efficient cryptocurrency transaction logging and management system built for traders, businesses, and financial institutions. CryptoTransactionLog provides comprehensive tracking, analysis, and reporting capabilities for all cryptocurrency transactions with enterprise-grade security.',
+      id: 'power-queue-tracker',
+      title: 'Power Queue Tracker',
+      subtitle: 'ERCOT Queue Monitoring for Data Center Site Selection',
+      description: 'Purpose-built for data center developers, energy consultants, and real estate professionals who need to track ERCOT power interconnection queues. PQT delivers automated digests, queue position tracking, and capacity insights — so you never miss a critical filing or status change.',
       features: [
-        'Multi-currency transaction tracking',
-        'Advanced security and encryption',
-        'Comprehensive audit trails',
-        'Tax reporting and compliance tools'
+        'Automated daily/weekly ERCOT queue digests via email',
+        'Filter and search across all active interconnection requests',
+        'Track queue position changes and new filings in real-time',
+        'Export data for analysis and reporting',
       ],
-      status: 'Beta Testing'
+      pricing: '$49 – $149/mo',
+      pricingColor: 'bg-blue-100 text-blue-800',
+      status: 'Live',
+      statusColor: 'bg-green-100 text-green-800',
+      icon: (
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+      ),
+      gradientFrom: 'from-blue-50',
+      gradientTo: 'to-sky-100',
     },
     {
-      id: 'powerdevs',
-      title: 'PowerDevs',
-      subtitle: 'Developer Productivity Platform',
-      description: 'A cutting-edge development platform that empowers software teams to build, deploy, and scale applications faster than ever before. PowerDevs integrates modern development tools with AI-powered assistance to accelerate the entire software development lifecycle.',
+      id: 'autoreels',
+      title: 'AutoReels.ai',
+      subtitle: 'AI Video Generation + TikTok Auto-Posting',
+      description: 'Generate professional short-form videos with AI and auto-post them to TikTok — all from one dashboard. AutoReels handles everything from prompt-to-video generation, multi-account management, smart scheduling, and one-click posting. Built for creators, agencies, and businesses scaling their TikTok presence.',
       features: [
-        'AI-powered code assistance and optimization',
-        'Integrated CI/CD pipelines',
-        'Advanced debugging and monitoring tools',
-        'Collaborative development environment'
+        'AI video generation from text prompts or pre-built templates',
+        'Connect and manage multiple TikTok accounts',
+        'Smart scheduling with auto-posting at optimal times',
+        'AI voiceover, captions, and hashtag generation',
       ],
-      status: 'In Development'
-    }
+      pricing: '$29 – $199/mo',
+      pricingColor: 'bg-purple-100 text-purple-800',
+      status: 'Live',
+      statusColor: 'bg-green-100 text-green-800',
+      icon: (
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+      ),
+      gradientFrom: 'from-purple-50',
+      gradientTo: 'to-violet-100',
+    },
   ];
-
-  const getStatusColor = (status: string) => {
-    switch (status) {
-      case 'In Development':
-        return 'bg-yellow-100 text-yellow-800';
-      case 'Beta Testing':
-        return 'bg-blue-100 text-blue-800';
-      case 'Concept Stage':
-        return 'bg-gray-100 text-gray-800';
-      default:
-        return 'bg-gray-100 text-gray-800';
-    }
-  };
 
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
-      
+
       {/* Hero Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
-            Our <span className="text-blue-600">Ventures</span>
+            Our <span className="text-blue-600">Products</span>
           </h1>
           <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
-            Explore our portfolio of innovative technology solutions designed to solve complex challenges 
-            and drive digital transformation across various industries.
+            Three live SaaS products serving energy markets, data center developers, and content creators.
+            Each product solves a real problem with a clear path to revenue.
           </p>
         </div>
       </section>
 
-      {/* Ventures Grid */}
+      {/* Products */}
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="space-y-16">
@@ -84,14 +95,19 @@ export default function Ventures() {
                 <div className="flex-1">
                   <div className="flex items-center gap-3 mb-4">
                     <h2 className="text-3xl font-bold text-gray-900">{venture.title}</h2>
-                    <span className={`px-3 py-1 rounded-full text-sm font-medium ${getStatusColor(venture.status)}`}>
+                    <span className={`px-3 py-1 rounded-full text-sm font-medium ${venture.statusColor}`}>
                       {venture.status}
                     </span>
                   </div>
                   <h3 className="text-xl text-blue-600 font-medium mb-4">{venture.subtitle}</h3>
-                  <p className="text-gray-600 mb-6 leading-relaxed">{venture.description}</p>
-                  
-                  {/* Features */}
+                  <p className="text-gray-600 mb-4 leading-relaxed">{venture.description}</p>
+
+                  <div className="mb-6">
+                    <span className={`inline-block px-4 py-1.5 rounded-full text-sm font-semibold ${venture.pricingColor}`}>
+                      {venture.pricing}
+                    </span>
+                  </div>
+
                   <div className="mb-8">
                     <h4 className="text-lg font-semibold text-gray-900 mb-3">Key Features:</h4>
                     <ul className="space-y-2">
@@ -105,38 +121,25 @@ export default function Ventures() {
                       ))}
                     </ul>
                   </div>
-                  
-                  {/* PowerPMIS Learn More Button */}
-                  {venture.id === 'powerpmis' && (
-                    <div className="mb-8">
-                      <Link
-                        href="/ventures/powerpmis"
-                        className="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors"
-                      >
-                        Explore Full Feature Set
-                        <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                        </svg>
-                      </Link>
-                    </div>
-                  )}
+
+                  <Link
+                    href={`/ventures/${venture.id}`}
+                    className="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors"
+                  >
+                    Learn More
+                    <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </Link>
                 </div>
-                
+
                 {/* Visual Element */}
                 <div className="flex-1 lg:max-w-md">
-                  <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-8 h-80 flex items-center justify-center">
+                  <div className={`bg-gradient-to-br ${venture.gradientFrom} ${venture.gradientTo} rounded-2xl p-8 h-80 flex items-center justify-center`}>
                     <div className="text-center">
                       <div className="w-24 h-24 bg-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
                         <svg className="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          {venture.id === 'powerpmis' && (
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                          )}
-                          {venture.id === 'cryptotransactionlog' && (
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                          )}
-                          {venture.id === 'powerdevs' && (
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                          )}
+                          {venture.icon}
                         </svg>
                       </div>
                       <h4 className="text-lg font-semibold text-gray-900">{venture.title}</h4>
@@ -154,10 +157,11 @@ export default function Ventures() {
       <section className="py-16 bg-gray-50">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">
-            Interested in Learning More?
+            Ready to Get Started?
           </h2>
           <p className="text-lg text-gray-600 mb-8">
-            Get in touch to discuss how our innovative solutions can help transform your business.
+            Whether you need energy market intelligence or AI content creation tools,
+            we have a product for you.
           </p>
           <Link
             href="/#contact"
