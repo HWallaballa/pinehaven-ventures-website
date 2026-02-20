@@ -57,6 +57,12 @@ export default function Home() {
             >
               Our Products
             </Link>
+            <Link
+              href="/reference/dark-factory-transition-plan"
+              className="border border-gray-300 text-gray-700 px-8 py-3 rounded-lg font-medium hover:bg-gray-50 transition-colors"
+            >
+              Dark Factory Plan
+            </Link>
             <a
               href="#contact"
               className="border border-blue-600 text-blue-600 px-8 py-3 rounded-lg font-medium hover:bg-blue-50 transition-colors"
