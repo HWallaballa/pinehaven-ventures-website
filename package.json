@@ -6,7 +6,9 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "seed-stripe": "tsx scripts/seed-stripe.ts",
+    "seed-stripe:dry": "tsx scripts/seed-stripe.ts --dry-run"
   },
   "dependencies": {
     "@stripe/stripe-js": "^8.7.0",
@@ -24,6 +26,7 @@
     "eslint": "^9",
     "eslint-config-next": "15.4.5",
     "tailwindcss": "^4",
+    "tsx": "^4.21.0",
     "typescript": "^5"
   }
 }
