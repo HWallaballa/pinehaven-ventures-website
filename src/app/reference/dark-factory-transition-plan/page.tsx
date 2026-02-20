@@ -20,6 +20,33 @@ type ScorecardMetric = {
   status: ProgramStatus;
 };
 
+type VentureProfile = {
+  name: string;
+  href: string;
+  offer: string;
+  pricing: string;
+  buyers: string;
+  contributionTarget: string;
+};
+
+type VentureRevenuePlan = {
+  venture: string;
+  href: string;
+  revenueTarget: string;
+  weeklyTarget: string;
+  pricingAnchor: string;
+  primaryMotion: string;
+  leadingIndicator: string;
+};
+
+type VentureSprintPlan = {
+  venture: string;
+  day1to30: string;
+  day31to60: string;
+  day61to90: string;
+  kpi: string;
+};
+
 const vibeLevels = [
   {
     level: 'Level 0',
@@ -48,6 +75,41 @@ const vibeLevels = [
     name: 'Developer as PM',
     summary:
       'The human writes a clear spec, leaves, then returns to evaluate outcomes. Diff-reading mostly disappears.',
+  },
+];
+
+const ventureProfiles: VentureProfile[] = [
+  {
+    name: 'Power Digital Intelligence',
+    href: '/ventures/power-digital',
+    offer: 'Institutional data center market intelligence and queue analytics',
+    pricing: '$10,000/year annual license',
+    buyers: 'Data center developers, institutional investors, utilities',
+    contributionTarget: '$250,000',
+  },
+  {
+    name: 'Power Queue Tracker',
+    href: '/ventures/power-queue-tracker',
+    offer: 'ERCOT queue monitoring, digests, alerts, and exports',
+    pricing: '$49/$99/$149 monthly plans',
+    buyers: 'Developers, consultants, and energy-adjacent teams',
+    contributionTarget: '$110,000',
+  },
+  {
+    name: 'AutoReels.ai',
+    href: '/ventures/autoreels',
+    offer: 'AI video generation and automated TikTok publishing',
+    pricing: '$29/$79/$199 monthly plans',
+    buyers: 'Creators, small businesses, and agencies',
+    contributionTarget: '$90,000',
+  },
+  {
+    name: 'Crypto Transaction Log',
+    href: '/ventures/crypto-transaction-log',
+    offer: 'Cross-exchange crypto import, organization, and exports',
+    pricing: 'Free + $9/month premium',
+    buyers: 'Crypto investors and active traders',
+    contributionTarget: '$50,000',
   },
 ];
 
@@ -84,27 +146,85 @@ const transitionPhases = [
   },
 ];
 
-const revenuePlan = [
+const ventureRevenuePlan: VentureRevenuePlan[] = [
   {
-    stream: 'Enterprise annual contracts (Power Digital + PQT)',
-    plan: '12 deals',
-    averageDeal: '$25,000',
-    target: '$300,000',
-    leadingIndicator: 'Qualified enterprise opportunities added per week',
+    venture: 'Power Digital Intelligence',
+    href: '/ventures/power-digital',
+    revenueTarget: '$250,000',
+    weeklyTarget: '$19.2k booked/week (about 2.0 annual licenses per week)',
+    pricingAnchor: '$10,000 annual license',
+    primaryMotion: 'Account-based outbound + investor/developer demos',
+    leadingIndicator: 'Qualified demos booked per week and proposal-to-close rate',
   },
   {
-    stream: 'Mid-market upgrades and expansion',
-    plan: '40 expansions',
-    averageDeal: '$3,000',
-    target: '$120,000',
-    leadingIndicator: 'Expansion-ready accounts with activated core features',
+    venture: 'Power Queue Tracker',
+    href: '/ventures/power-queue-tracker',
+    revenueTarget: '$110,000',
+    weeklyTarget: '$8.5k booked/week (about $2.1k net new MRR per week)',
+    pricingAnchor: '$49/$99/$149 monthly',
+    primaryMotion: 'Digest-led self-serve conversion + enterprise upsell',
+    leadingIndicator: 'Net new MRR, activation rate, and weekly churn',
   },
   {
-    stream: 'Self-serve conversion uplift (AutoReels + CTL)',
-    plan: '500 net paid conversions',
-    averageDeal: '$160 90-day value',
-    target: '$80,000',
-    leadingIndicator: 'Trial-to-paid conversion rate and onboarding completion',
+    venture: 'AutoReels.ai',
+    href: '/ventures/autoreels',
+    revenueTarget: '$90,000',
+    weeklyTarget: '$6.9k booked/week (about $1.7k net new MRR per week)',
+    pricingAnchor: '$29/$79/$199 monthly',
+    primaryMotion: 'Creator funnel + agency multi-account upgrades',
+    leadingIndicator: 'Trial-to-paid conversion and retained weekly publishers',
+  },
+  {
+    venture: 'Crypto Transaction Log',
+    href: '/ventures/crypto-transaction-log',
+    revenueTarget: '$50,000',
+    weeklyTarget: '$3.8k booked/week (about 140 premium upgrades per week)',
+    pricingAnchor: 'Free + $9 premium',
+    primaryMotion: 'Demo-led acquisition + premium upgrade automation',
+    leadingIndicator: 'Import success rate and free-to-premium conversion',
+  },
+];
+
+const ventureSprintPlan: VentureSprintPlan[] = [
+  {
+    venture: 'Power Digital Intelligence',
+    day1to30:
+      'Spec packs for watchlist onboarding, queue-delta alerts, and proposal generation from live market data.',
+    day31to60:
+      'Automate investor-facing intelligence report generation with scenario checks for data accuracy.',
+    day61to90:
+      'Ship enterprise-ready API onboarding and expansion playbooks to increase annual contract close velocity.',
+    kpi: 'Annual licenses closed and time-to-first-insight under 24 hours',
+  },
+  {
+    venture: 'Power Queue Tracker',
+    day1to30:
+      'Build digest personalization and one-session watchlist setup with behavior-based acceptance tests.',
+    day31to60:
+      'Deploy alert-quality scoring and queue anomaly detection to raise trust and reduce false positives.',
+    day61to90:
+      'Roll out team collaboration and annual prepay experiments optimized for Team and Enterprise plans.',
+    kpi: 'Net new MRR, activation in first 24 hours, and logo churn',
+  },
+  {
+    venture: 'AutoReels.ai',
+    day1to30:
+      'Create onboarding flow that gets first generated video posted in under 10 minutes for new trials.',
+    day31to60:
+      'Launch auto A/B caption-hashtag generation and schedule reliability scenarios for multi-account posting.',
+    day61to90:
+      'Ship agency operations dashboard and usage-driven upgrade nudges for Pro and Agency growth.',
+    kpi: 'Trial-to-paid conversion and weekly retained posting accounts',
+  },
+  {
+    venture: 'Crypto Transaction Log',
+    day1to30:
+      'Improve CSV/XLS import success and standardize demo-to-signup conversion scenarios on web/mobile.',
+    day31to60:
+      'Release tax export wizard, transaction auto-tagging, and premium prompt timing experiments.',
+    day61to90:
+      'Introduce retention loops (portfolio digests, reminders) plus premium annual prepay packaging tests.',
+    kpi: 'Free-to-premium conversion, D30 retention, and import completion rate',
   },
 ];
 
@@ -124,6 +244,42 @@ const scorecard: ScorecardMetric[] = [
     day30: '$40,000',
     day60: '$150,000',
     day90: '$320,000',
+    current: 'Update weekly',
+    status: 'At Risk',
+  },
+  {
+    metric: 'Power Digital annual licenses closed',
+    baseline: 'Current baseline from CRM',
+    day30: '8',
+    day60: '16',
+    day90: '25',
+    current: 'Update weekly',
+    status: 'At Risk',
+  },
+  {
+    metric: 'Power Queue Tracker net new MRR',
+    baseline: 'Current MRR baseline',
+    day30: '+$6,000',
+    day60: '+$18,000',
+    day90: '+$27,000',
+    current: 'Update weekly',
+    status: 'On Track',
+  },
+  {
+    metric: 'AutoReels net new MRR',
+    baseline: 'Current MRR baseline',
+    day30: '+$4,000',
+    day60: '+$12,000',
+    day90: '+$20,000',
+    current: 'Update weekly',
+    status: 'On Track',
+  },
+  {
+    metric: 'Crypto Transaction Log premium upgrades',
+    baseline: 'Current paid premium users',
+    day30: '350',
+    day60: '900',
+    day90: '1,800',
     current: 'Update weekly',
     status: 'At Risk',
   },
@@ -289,6 +445,49 @@ export default function DarkFactoryTransitionPlanPage() {
 
           <section className="mb-10">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">
+              Portfolio this plan is built around
+            </h2>
+            <p className="text-gray-700 mb-4">
+              These are the four live ventures included in the 90-day model. Revenue contributions
+              below roll up to the $500,000 target.
+            </p>
+            <div className="grid gap-4 md:grid-cols-2">
+              {ventureProfiles.map((venture) => (
+                <article key={venture.name} className="bg-white border border-gray-200 rounded-xl p-5">
+                  <div className="flex items-start justify-between gap-3 mb-3">
+                    <h3 className="text-lg font-semibold text-gray-900">{venture.name}</h3>
+                    <span className="inline-flex px-2.5 py-1 rounded-full text-xs font-semibold bg-blue-100 text-blue-800">
+                      Target: {venture.contributionTarget}
+                    </span>
+                  </div>
+                  <p className="text-sm text-gray-700 mb-2">{venture.offer}</p>
+                  <p className="text-sm text-gray-600 mb-1">
+                    <span className="font-semibold text-gray-800">Pricing:</span> {venture.pricing}
+                  </p>
+                  <p className="text-sm text-gray-600 mb-4">
+                    <span className="font-semibold text-gray-800">Primary buyers:</span> {venture.buyers}
+                  </p>
+                  <Link
+                    href={venture.href}
+                    className="inline-flex items-center text-sm font-semibold text-blue-700 hover:text-blue-800"
+                  >
+                    View product page
+                    <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M14 5l7 7m0 0l-7 7m7-7H3"
+                      />
+                    </svg>
+                  </Link>
+                </article>
+              ))}
+            </div>
+          </section>
+
+          <section className="mb-10">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">
               Five Levels of Vibe Coding (Dan Shapiro, early 2026)
             </h2>
             <div className="space-y-4">
@@ -327,39 +526,79 @@ export default function DarkFactoryTransitionPlanPage() {
           </section>
 
           <section className="mb-10">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">Revenue plan to reach $500K</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">
+              Revenue plan by venture to reach $500K
+            </h2>
             <div className="overflow-x-auto border border-gray-200 rounded-xl bg-white">
               <table className="min-w-full text-left">
                 <thead className="bg-gray-50">
                   <tr>
-                    <th className="px-4 py-3 text-sm font-semibold text-gray-700">Revenue stream</th>
-                    <th className="px-4 py-3 text-sm font-semibold text-gray-700">Plan</th>
-                    <th className="px-4 py-3 text-sm font-semibold text-gray-700">Average deal</th>
+                    <th className="px-4 py-3 text-sm font-semibold text-gray-700">Venture</th>
+                    <th className="px-4 py-3 text-sm font-semibold text-gray-700">Pricing anchor</th>
                     <th className="px-4 py-3 text-sm font-semibold text-gray-700">90-day target</th>
-                    <th className="px-4 py-3 text-sm font-semibold text-gray-700">
-                      Leading indicator
-                    </th>
+                    <th className="px-4 py-3 text-sm font-semibold text-gray-700">Weekly target</th>
+                    <th className="px-4 py-3 text-sm font-semibold text-gray-700">Primary motion</th>
+                    <th className="px-4 py-3 text-sm font-semibold text-gray-700">Leading indicator</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {revenuePlan.map((row) => (
-                    <tr key={row.stream} className="border-t border-gray-100">
-                      <td className="px-4 py-3 text-sm text-gray-800">{row.stream}</td>
-                      <td className="px-4 py-3 text-sm text-gray-700">{row.plan}</td>
-                      <td className="px-4 py-3 text-sm text-gray-700">{row.averageDeal}</td>
-                      <td className="px-4 py-3 text-sm font-semibold text-blue-700">{row.target}</td>
+                  {ventureRevenuePlan.map((row) => (
+                    <tr key={row.venture} className="border-t border-gray-100">
+                      <td className="px-4 py-3 text-sm text-gray-800">
+                        <Link href={row.href} className="font-semibold text-blue-700 hover:text-blue-800">
+                          {row.venture}
+                        </Link>
+                      </td>
+                      <td className="px-4 py-3 text-sm text-gray-700">{row.pricingAnchor}</td>
+                      <td className="px-4 py-3 text-sm font-semibold text-blue-700">{row.revenueTarget}</td>
+                      <td className="px-4 py-3 text-sm text-gray-700">{row.weeklyTarget}</td>
+                      <td className="px-4 py-3 text-sm text-gray-700">{row.primaryMotion}</td>
                       <td className="px-4 py-3 text-sm text-gray-700">{row.leadingIndicator}</td>
                     </tr>
                   ))}
                   <tr className="border-t border-gray-200 bg-blue-50">
-                    <td className="px-4 py-3 text-sm font-bold text-gray-900" colSpan={3}>
+                    <td className="px-4 py-3 text-sm font-bold text-gray-900" colSpan={2}>
                       Total target
                     </td>
                     <td className="px-4 py-3 text-sm font-bold text-blue-800">$500,000</td>
-                    <td className="px-4 py-3 text-sm text-gray-700">
+                    <td className="px-4 py-3 text-sm text-gray-700" colSpan={3}>
                       Updated every weekly operating review
                     </td>
                   </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section className="mb-10">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">
+              Dark-factory sprint backlog by venture (Days 1-90)
+            </h2>
+            <p className="text-gray-700 mb-4">
+              Each product gets a dedicated spec backlog so execution speed maps to measurable revenue
+              outcomes instead of generic feature output.
+            </p>
+            <div className="overflow-x-auto border border-gray-200 rounded-xl bg-white">
+              <table className="min-w-full text-left">
+                <thead className="bg-gray-50">
+                  <tr>
+                    <th className="px-4 py-3 text-sm font-semibold text-gray-700">Venture</th>
+                    <th className="px-4 py-3 text-sm font-semibold text-gray-700">Days 1-30</th>
+                    <th className="px-4 py-3 text-sm font-semibold text-gray-700">Days 31-60</th>
+                    <th className="px-4 py-3 text-sm font-semibold text-gray-700">Days 61-90</th>
+                    <th className="px-4 py-3 text-sm font-semibold text-gray-700">Core KPI</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {ventureSprintPlan.map((row) => (
+                    <tr key={row.venture} className="border-t border-gray-100 align-top">
+                      <td className="px-4 py-3 text-sm font-semibold text-gray-800">{row.venture}</td>
+                      <td className="px-4 py-3 text-sm text-gray-700">{row.day1to30}</td>
+                      <td className="px-4 py-3 text-sm text-gray-700">{row.day31to60}</td>
+                      <td className="px-4 py-3 text-sm text-gray-700">{row.day61to90}</td>
+                      <td className="px-4 py-3 text-sm text-gray-700">{row.kpi}</td>
+                    </tr>
+                  ))}
                 </tbody>
               </table>
             </div>
