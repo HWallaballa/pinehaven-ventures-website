@@ -1,11 +1,16 @@
 import Navigation from '../../components/Navigation';
+import CheckoutButton from '../../components/CheckoutButton';
 import Link from 'next/link';
+import { getProductBySlug } from '@/lib/stripe-products';
 
 export default function AutoReels() {
+  const product = getProductBySlug('autoreels');
+
   const plans = [
     {
       name: 'Starter',
       price: 29,
+      priceId: product?.plans.find((p) => p.id === 'autoreels-starter')?.priceId || '',
       desc: 'For individual creators',
       features: [
         '30 AI videos/month',
@@ -19,6 +24,7 @@ export default function AutoReels() {
       name: 'Pro',
       price: 79,
       popular: true,
+      priceId: product?.plans.find((p) => p.id === 'autoreels-pro')?.priceId || '',
       desc: 'For serious creators and small businesses',
       features: [
         '100 AI videos/month',
@@ -32,6 +38,7 @@ export default function AutoReels() {
     {
       name: 'Agency',
       price: 199,
+      priceId: product?.plans.find((p) => p.id === 'autoreels-agency')?.priceId || '',
       desc: 'For agencies managing multiple brands',
       features: [
         '500 AI videos/month',
@@ -188,16 +195,16 @@ export default function AutoReels() {
                   <span className="text-4xl font-bold text-gray-900">${plan.price}</span>
                   <span className="text-gray-500">/mo</span>
                 </div>
-                <Link
-                  href="/#contact"
-                  className={`block text-center w-full rounded-lg py-3 font-semibold transition-colors ${
+                <CheckoutButton
+                  priceId={plan.priceId}
+                  mode="subscription"
+                  label="Get Started"
+                  className={`block text-center w-full rounded-lg py-3 font-semibold transition-colors disabled:opacity-50 disabled:cursor-not-allowed ${
                     plan.popular
                       ? 'bg-purple-600 text-white hover:bg-purple-700'
                       : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
                   }`}
-                >
-                  Get Started
-                </Link>
+                />
                 <ul className="mt-6 space-y-3">
                   {plan.features.map((feature, i) => (
                     <li key={i} className="flex items-center gap-2 text-sm text-gray-700">

@@ -9,7 +9,8 @@ export default function Navigation() {
   const navItems = [
     { href: '/', label: 'Home' },
     { href: '/ventures', label: 'Products' },
-    { href: '/reference/dark-factory-transition-plan', label: 'Reference' },
+    { href: '/reference/dark-factory-transition-plan', label: 'Dark Factory Plan' },
+    { href: '/reference/stripe-integration-spec', label: 'Stripe Spec' },
   ];
 
   return (
