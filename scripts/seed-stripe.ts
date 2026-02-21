@@ -136,17 +136,24 @@ async function main() {
   // Customer Portal
   divider('Customer Portal Configuration');
   if (!dryRun) {
-    const productPriceMap: Record<string, string[]> = {};
+    const productPriceMap: Record<string, { prices: string[]; intervals: string[] }> = {};
     let idx = 0;
     for (const pd of products) {
       const prices: string[] = [];
-      for (let i = 0; i < pd.plans.length; i++) { prices.push(allPriceIds[idx]); idx++; }
+      const intervals: string[] = [];
+      for (let i = 0; i < pd.plans.length; i++) { prices.push(allPriceIds[idx]); intervals.push(pd.plans[i].interval); idx++; }
       if (prices.length > 0) {
         const detail = await stripe.prices.retrieve(prices[0]);
         const prodId = typeof detail.product === 'string' ? detail.product : detail.product.id;
-        productPriceMap[prodId] = prices;
+        productPriceMap[prodId] = { prices, intervals };
       }
     }
+    // Stripe portal requires unique billing intervals per product.
+    // Only include products where all prices have distinct intervals.
+    const portalProducts = Object.entries(productPriceMap)
+      .filter(([, { intervals }]) => new Set(intervals).size === intervals.length)
+      .map(([p, { prices }]) => ({ product: p, prices }));
+    const hasSubscriptionUpdate = portalProducts.length > 0;
     await stripe.billingPortal.configurations.create({
       business_profile: { headline: 'Pinehaven Ventures LLC — Manage Your Subscription' },
       features: {
@@ -154,14 +161,14 @@ async function main() {
         invoice_history: { enabled: true },
         payment_method_update: { enabled: true },
         subscription_cancel: { enabled: true, mode: 'at_period_end' },
-        subscription_update: {
+        subscription_update: hasSubscriptionUpdate ? {
           enabled: true, default_allowed_updates: ['price'],
           proration_behavior: 'create_prorations',
-          products: Object.entries(productPriceMap).map(([p, prices]) => ({ product: p, prices })),
-        },
+          products: portalProducts,
+        } : { enabled: false },
       },
     });
-    console.log('  Portal configured');
+    console.log('  Portal configured' + (hasSubscriptionUpdate ? '' : ' (plan switching disabled — products have duplicate intervals)'));
   } else { console.log('  [DRY RUN] Would configure portal'); }
 
   divider('Environment Variables — paste into .env.local');
