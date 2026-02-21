@@ -8,7 +8,9 @@
     "start": "next start",
     "lint": "next lint",
     "seed-stripe": "tsx scripts/seed-stripe.ts",
-    "seed-stripe:dry": "tsx scripts/seed-stripe.ts --dry-run"
+    "seed-stripe:dry": "tsx scripts/seed-stripe.ts --dry-run",
+    "generate": "tsx scripts/generate-from-manifest.ts",
+    "generate:dry": "tsx scripts/generate-from-manifest.ts --dry-run"
   },
   "dependencies": {
     "@stripe/stripe-js": "^8.7.0",
