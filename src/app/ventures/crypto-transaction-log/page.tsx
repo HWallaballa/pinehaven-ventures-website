@@ -1,11 +1,17 @@
 import Navigation from '../../components/Navigation';
+import CheckoutButton from '../../components/CheckoutButton';
 import Link from 'next/link';
+import { getProductBySlug } from '@/lib/stripe-products';
 
 export default function CryptoTransactionLog() {
+  const product = getProductBySlug('crypto-transaction-log');
+  const premiumPriceId = product?.plans.find((p) => p.id === 'ctl-premium')?.priceId || '';
+
   const plans = [
     {
       name: 'Free',
       price: 0,
+      priceId: '',
       desc: 'For casual crypto investors',
       features: [
         'Basic exchange support',
@@ -19,6 +25,7 @@ export default function CryptoTransactionLog() {
       name: 'Premium',
       price: 9,
       popular: true,
+      priceId: premiumPriceId,
       desc: 'For active traders and multi-exchange users',
       features: [
         'All free features',
@@ -189,16 +196,23 @@ export default function CryptoTransactionLog() {
                     </>
                   )}
                 </div>
-                <Link
-                  href="/#contact"
-                  className={`block text-center w-full rounded-lg py-3 font-semibold transition-colors ${
-                    plan.popular
-                      ? 'bg-orange-600 text-white hover:bg-orange-700'
-                      : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
-                  }`}
-                >
-                  Get Started
-                </Link>
+                {plan.priceId ? (
+                  <CheckoutButton
+                    priceId={plan.priceId}
+                    mode="subscription"
+                    label="Upgrade to Premium"
+                    className={`block text-center w-full rounded-lg py-3 font-semibold transition-colors disabled:opacity-50 disabled:cursor-not-allowed ${
+                      'bg-orange-600 text-white hover:bg-orange-700'
+                    }`}
+                  />
+                ) : (
+                  <Link
+                    href="/ventures/crypto-transaction-log/demo"
+                    className="block text-center w-full rounded-lg py-3 font-semibold transition-colors bg-gray-100 text-gray-900 hover:bg-gray-200"
+                  >
+                    Try Free Demo
+                  </Link>
+                )}
                 <ul className="mt-6 space-y-3">
                   {plan.features.map((feature, i) => (
                     <li key={i} className="flex items-center gap-2 text-sm text-gray-700">

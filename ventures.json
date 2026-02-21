@@ -1,0 +1,241 @@
+{
+  "company": "Pinehaven Ventures LLC",
+  "contact_email": "hunter@pinehavenventures.io",
+  "ventures": [
+    {
+      "id": "power-digital",
+      "name": "Power Digital Intelligence",
+      "tagline": "Institutional-grade data center market intelligence",
+      "description": "The single source of truth for interconnection queues, capacity pipelines, and energy market signals.",
+      "color": "green",
+      "icon": "chart-bar",
+      "status": "live",
+      "target_market": ["Data center developers", "Institutional investors", "Utilities & ISOs"],
+      "features": [
+        "Real-time ERCOT interconnection queue tracking",
+        "Data center capacity pipeline monitoring",
+        "Market intelligence reports",
+        "Custom alerts and watchlists",
+        "API access",
+        "Priority support"
+      ],
+      "plans": [
+        {
+          "id": "power-digital-annual",
+          "name": "Annual License",
+          "price": 10000,
+          "currency": "usd",
+          "interval": "year",
+          "stripe_env_key": "NEXT_PUBLIC_STRIPE_PRICE_POWER_DIGITAL_ANNUAL",
+          "features": [
+            "Full platform access for your organization",
+            "Unlimited users and API calls",
+            "Historical data back to 2019",
+            "Custom alerts and watchlists",
+            "Monthly intelligence reports",
+            "Dedicated account manager"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "power-queue-tracker",
+      "name": "Power Queue Tracker",
+      "tagline": "Never miss a critical ERCOT interconnection queue change",
+      "description": "Automated monitoring, email digests, and real-time alerts for data center site selection professionals.",
+      "color": "blue",
+      "icon": "magnifying-glass",
+      "status": "live",
+      "target_market": ["Data center developers", "Consultants", "Energy professionals"],
+      "features": [
+        "Automated daily/weekly ERCOT queue digests",
+        "Smart search & filters",
+        "Watchlists with alerts",
+        "Data export & API",
+        "Historical tracking",
+        "Team collaboration"
+      ],
+      "plans": [
+        {
+          "id": "pqt-solo",
+          "name": "Solo",
+          "price": 49,
+          "currency": "usd",
+          "interval": "month",
+          "stripe_env_key": "NEXT_PUBLIC_STRIPE_PRICE_PQT_SOLO",
+          "description": "For individual consultants and analysts",
+          "features": [
+            "1 user seat",
+            "Daily ERCOT queue digest emails",
+            "Full queue search and filters",
+            "CSV data export",
+            "Email support"
+          ]
+        },
+        {
+          "id": "pqt-team",
+          "name": "Team",
+          "price": 99,
+          "currency": "usd",
+          "interval": "month",
+          "popular": true,
+          "stripe_env_key": "NEXT_PUBLIC_STRIPE_PRICE_PQT_TEAM",
+          "description": "For development teams and small firms",
+          "features": [
+            "Up to 5 user seats",
+            "Daily + weekly digest emails",
+            "Custom watchlists with alerts",
+            "Priority data refresh",
+            "Excel and CSV exports",
+            "Priority support"
+          ]
+        },
+        {
+          "id": "pqt-enterprise",
+          "name": "Enterprise",
+          "price": 149,
+          "currency": "usd",
+          "interval": "month",
+          "stripe_env_key": "NEXT_PUBLIC_STRIPE_PRICE_PQT_ENTERPRISE",
+          "description": "For organizations needing full coverage",
+          "features": [
+            "Unlimited user seats",
+            "Real-time queue change alerts",
+            "API access for integrations",
+            "Custom report builder",
+            "Historical data archive",
+            "Dedicated account manager",
+            "SLA guarantee"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "autoreels",
+      "name": "AutoReels.ai",
+      "tagline": "AI-powered short-form video generation",
+      "description": "Generate stunning short-form videos with AI and auto-post them to TikTok. Schedule content, manage multiple accounts, and grow your audience — all on autopilot.",
+      "color": "purple",
+      "icon": "video-camera",
+      "status": "live",
+      "target_market": ["Creators", "Small businesses", "Agencies"],
+      "features": [
+        "AI video generation from text prompts",
+        "Multi-account TikTok management",
+        "Smart scheduling",
+        "AI voiceover & captions",
+        "One-click posting"
+      ],
+      "plans": [
+        {
+          "id": "autoreels-starter",
+          "name": "Starter",
+          "price": 29,
+          "currency": "usd",
+          "interval": "month",
+          "stripe_env_key": "NEXT_PUBLIC_STRIPE_PRICE_AUTOREELS_STARTER",
+          "description": "For individual creators",
+          "features": [
+            "30 AI videos/month",
+            "1 TikTok account",
+            "Basic templates",
+            "Direct posting",
+            "Email support"
+          ]
+        },
+        {
+          "id": "autoreels-pro",
+          "name": "Pro",
+          "price": 79,
+          "currency": "usd",
+          "interval": "month",
+          "popular": true,
+          "stripe_env_key": "NEXT_PUBLIC_STRIPE_PRICE_AUTOREELS_PRO",
+          "description": "For serious creators and small businesses",
+          "features": [
+            "100 AI videos/month",
+            "5 TikTok accounts",
+            "All templates",
+            "Smart scheduling",
+            "AI voiceover",
+            "Priority support"
+          ]
+        },
+        {
+          "id": "autoreels-agency",
+          "name": "Agency",
+          "price": 199,
+          "currency": "usd",
+          "interval": "month",
+          "stripe_env_key": "NEXT_PUBLIC_STRIPE_PRICE_AUTOREELS_AGENCY",
+          "description": "For agencies managing multiple brands",
+          "features": [
+            "500 AI videos/month",
+            "Unlimited TikTok accounts",
+            "All templates",
+            "Smart scheduling",
+            "AI voiceover",
+            "Priority generation",
+            "API access",
+            "Dedicated account manager"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "crypto-transaction-log",
+      "name": "Crypto Transaction Log",
+      "tagline": "Track crypto across every exchange",
+      "description": "Upload CSV and XLS files from any exchange, track, analyze, search, sort, and export your crypto transactions — all in one place.",
+      "color": "orange",
+      "icon": "currency-dollar",
+      "status": "live",
+      "target_market": ["Crypto investors", "Active traders"],
+      "has_free_tier": true,
+      "has_demo": true,
+      "features": [
+        "CSV/XLS import from any exchange",
+        "Multi-exchange transaction consolidation",
+        "Smart filtering & search",
+        "Notes & custom tags",
+        "Combined export reports",
+        "iOS/Android/web platform"
+      ],
+      "plans": [
+        {
+          "id": "ctl-free",
+          "name": "Free",
+          "price": 0,
+          "currency": "usd",
+          "interval": "month",
+          "description": "For casual crypto investors",
+          "features": [
+            "Basic exchange support",
+            "CSV/XLS file import",
+            "Transaction search & sort",
+            "Single exchange tracking",
+            "Community support"
+          ]
+        },
+        {
+          "id": "ctl-premium",
+          "name": "Premium",
+          "price": 9,
+          "currency": "usd",
+          "interval": "month",
+          "popular": true,
+          "stripe_env_key": "NEXT_PUBLIC_STRIPE_PRICE_CTL_PREMIUM",
+          "description": "For active traders and multi-exchange users",
+          "features": [
+            "All free features",
+            "Unlimited exchange support",
+            "Multi-exchange combined exports",
+            "Advanced filters & tags",
+            "Cloud sync across devices",
+            "Priority support"
+          ]
+        }
+      ]
+    }
+  ]
+}

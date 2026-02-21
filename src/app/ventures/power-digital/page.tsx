@@ -1,7 +1,11 @@
 import Navigation from '../../components/Navigation';
+import CheckoutButton from '../../components/CheckoutButton';
 import Link from 'next/link';
+import { getProductBySlug } from '@/lib/stripe-products';
 
 export default function PowerDigital() {
+  const product = getProductBySlug('power-digital');
+  const annualPlan = product?.plans[0];
   const features = [
     {
       title: 'Interconnection Queue Tracking',
@@ -159,15 +163,14 @@ export default function PowerDigital() {
                 </li>
               ))}
             </ul>
-            <Link
-              href="/#contact"
-              className="inline-flex items-center px-8 py-3 bg-green-600 text-white rounded-lg font-medium hover:bg-green-700 transition-colors"
-            >
-              Request a Demo
-              <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </Link>
+            {annualPlan && (
+              <CheckoutButton
+                priceId={annualPlan.priceId}
+                mode="subscription"
+                label="Subscribe — $10,000/year"
+                className="inline-flex items-center px-8 py-3 bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              />
+            )}
           </div>
         </div>
       </section>

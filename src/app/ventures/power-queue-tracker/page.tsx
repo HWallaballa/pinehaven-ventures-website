@@ -1,11 +1,16 @@
 import Navigation from '../../components/Navigation';
+import CheckoutButton from '../../components/CheckoutButton';
 import Link from 'next/link';
+import { getProductBySlug } from '@/lib/stripe-products';
 
 export default function PowerQueueTracker() {
+  const product = getProductBySlug('power-queue-tracker');
+
   const plans = [
     {
       name: 'Solo',
       price: 49,
+      priceId: product?.plans.find((p) => p.id === 'pqt-solo')?.priceId || '',
       desc: 'For individual consultants and analysts',
       features: [
         '1 user seat',
@@ -19,6 +24,7 @@ export default function PowerQueueTracker() {
       name: 'Team',
       price: 99,
       popular: true,
+      priceId: product?.plans.find((p) => p.id === 'pqt-team')?.priceId || '',
       desc: 'For development teams and small firms',
       features: [
         'Up to 5 user seats',
@@ -32,6 +38,7 @@ export default function PowerQueueTracker() {
     {
       name: 'Enterprise',
       price: 149,
+      priceId: product?.plans.find((p) => p.id === 'pqt-enterprise')?.priceId || '',
       desc: 'For organizations needing full coverage',
       features: [
         'Unlimited user seats',
@@ -177,16 +184,16 @@ export default function PowerQueueTracker() {
                   <span className="text-4xl font-bold text-gray-900">${plan.price}</span>
                   <span className="text-gray-500">/mo</span>
                 </div>
-                <Link
-                  href="/#contact"
-                  className={`block text-center w-full rounded-lg py-3 font-semibold transition-colors ${
+                <CheckoutButton
+                  priceId={plan.priceId}
+                  mode="subscription"
+                  label="Get Started"
+                  className={`block text-center w-full rounded-lg py-3 font-semibold transition-colors disabled:opacity-50 disabled:cursor-not-allowed ${
                     plan.popular
                       ? 'bg-blue-600 text-white hover:bg-blue-700'
                       : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
                   }`}
-                >
-                  Get Started
-                </Link>
+                />
                 <ul className="mt-6 space-y-3">
                   {plan.features.map((feature, i) => (
                     <li key={i} className="flex items-center gap-2 text-sm text-gray-700">
