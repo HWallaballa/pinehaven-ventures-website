@@ -11,6 +11,7 @@ export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
     const email = (body.email || '').trim().toLowerCase();
+    const source = body.source || 'unknown';
 
     if (!email || !isValidEmail(email)) {
       return NextResponse.json(
@@ -45,6 +46,7 @@ export async function POST(req: NextRequest) {
                 email,
                 tier: 'Free',
                 active: true,
+                source,
               },
             },
           ],
