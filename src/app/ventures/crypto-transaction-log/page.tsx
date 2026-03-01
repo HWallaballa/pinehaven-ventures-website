@@ -63,16 +63,27 @@ export default function CryptoTransactionLog() {
               Live
             </span>
           </div>
-          <Link
-            href="/ventures/crypto-transaction-log/demo"
-            className="inline-flex items-center px-8 py-4 bg-orange-600 text-white rounded-xl font-semibold text-lg hover:bg-orange-700 transition-colors shadow-lg shadow-orange-600/25"
-          >
-            Try Interactive Demo
-            <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-          </Link>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="/ventures/crypto-transaction-log/login"
+              className="inline-flex items-center px-8 py-4 bg-orange-600 text-white rounded-xl font-semibold text-lg hover:bg-orange-700 transition-colors shadow-lg shadow-orange-600/25"
+            >
+              Get Started Free
+              <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </Link>
+            <Link
+              href="/ventures/crypto-transaction-log/demo"
+              className="inline-flex items-center px-8 py-4 border-2 border-orange-600 text-orange-600 rounded-xl font-semibold text-lg hover:bg-orange-50 transition-colors"
+            >
+              Try Interactive Demo
+              <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -207,10 +218,10 @@ export default function CryptoTransactionLog() {
                   />
                 ) : (
                   <Link
-                    href="/ventures/crypto-transaction-log/demo"
+                    href="/ventures/crypto-transaction-log/login"
                     className="block text-center w-full rounded-lg py-3 font-semibold transition-colors bg-gray-100 text-gray-900 hover:bg-gray-200"
                   >
-                    Try Free Demo
+                    Get Started Free
                   </Link>
                 )}
                 <ul className="mt-6 space-y-3">

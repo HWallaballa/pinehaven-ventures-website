@@ -1,36 +1,123 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Pinehaven Ventures Website
 
-## Getting Started
+Official website for Pinehaven Ventures LLC.
 
-First, run the development server:
+## Stack
+
+- Next.js 16 (App Router)
+- React 19 + TypeScript
+- Tailwind CSS v4
+- Stripe Checkout + Billing Portal
+
+## Repository
+
+- GitHub: `https://github.com/HWallaballa/pinehaven-ventures-website`
+- Main product manifest: `ventures.json`
+- Agent workflow and generation rules: `CLAUDE.md`
+
+## Local Development (Any Machine)
+
+1. Install Node.js 22+ and npm.
+2. Clone the repository.
+3. Install dependencies.
+4. Create `.env.local` from `.env.example`.
+5. Start the dev server.
 
 ```bash
+npm install
+cp .env.example .env.local
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+App runs at `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Linux Factory Setup (Omarchy Build Server)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Use this when setting up the always-on autonomous build machine.
 
-## Learn More
+### 1) Verify prerequisites
 
-To learn more about Next.js, take a look at the following resources:
+Required binaries:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `git`
+- `node` (v22+)
+- `npm`
+- `gh`
+- `docker`
+- `tmux`
+- `jq`
+- `curl`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Verification:
 
-## Deploy on Vercel
+```bash
+node -v
+npm -v
+git --version
+gh --version
+docker --version
+tmux -V
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 2) Clone and run the website
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+mkdir -p ~/pinehaven && cd ~/pinehaven
+git clone https://github.com/HWallaballa/pinehaven-ventures-website.git
+cd pinehaven-ventures-website
+npm install
+cp .env.example .env.local
+npm run dev -- --hostname 0.0.0.0 --port 3000
+```
+
+Quick health check:
+
+```bash
+curl -I http://localhost:3000
+```
+
+### 3) Configure Anthropic key for CLI automation
+
+```bash
+export ANTHROPIC_API_KEY="sk-ant-..."
+echo 'export ANTHROPIC_API_KEY="sk-ant-..."' >> ~/.bashrc
+source ~/.bashrc
+```
+
+### 4) Run baseline quality checks
+
+```bash
+npx tsc --noEmit
+npm run build
+```
+
+### 5) Optional local model setup (cost control)
+
+```bash
+curl -fsSL https://ollama.com/install.sh | sh
+ollama pull llama3.1:8b
+```
+
+## Project Scripts
+
+- `npm run dev` - Run development server
+- `npm run build` - Build production app
+- `npm run lint` - Run linting
+- `npm run generate` - Generate Stripe/product artifacts from `ventures.json`
+- `npm run generate:dry` - Preview generation changes
+- `npm run seed-stripe` - Provision Stripe products/prices
+- `npm run seed-stripe:dry` - Dry-run Stripe provisioning
+
+## Environment and Secrets
+
+- Keep secrets in `.env.local` only.
+- Never commit API keys.
+- Stripe and Anthropic credentials are required for full automation flows.
+
+## Suggested Validation Before Merging
+
+```bash
+npx tsc --noEmit
+npm run lint
+npm run build
+```
