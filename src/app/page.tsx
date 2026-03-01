@@ -1,6 +1,7 @@
 import Navigation from './components/Navigation';
 import ContactForm from './components/ContactForm';
 import Link from 'next/link';
+import LeadCapture from './components/LeadCapture';
 
 export default function Home() {
   const products = [
@@ -138,6 +139,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Lead Capture Section */}
+      <LeadCapture />
 
       {/* Contact Form */}
       <div id="contact">
