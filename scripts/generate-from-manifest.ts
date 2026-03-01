@@ -192,7 +192,7 @@ function generateSeedStripe(): string {
   lines.push(`  process.exit(1);`);
   lines.push(`}`);
   lines.push(``);
-  lines.push(`const stripe = new Stripe(secretKey, { apiVersion: '2026-01-28.clover', typescript: true });`);
+  lines.push(`const stripe = new Stripe(secretKey, { apiVersion: '2026-02-25.clover', typescript: true });`);
   lines.push(``);
   lines.push(`const products = ${JSON.stringify(
     manifest.ventures

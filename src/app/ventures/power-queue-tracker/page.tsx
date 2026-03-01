@@ -1,5 +1,6 @@
 import Navigation from '../../components/Navigation';
 import CheckoutButton from '../../components/CheckoutButton';
+import SubscribeBanner from '../../components/SubscribeBanner';
 import Link from 'next/link';
 import { getProductBySlug } from '@/lib/stripe-products';
 
@@ -55,6 +56,7 @@ export default function PowerQueueTracker() {
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
+      <SubscribeBanner />
 
       {/* Hero */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-50 to-sky-100">
