@@ -1,11 +1,15 @@
+'use client';
+
 import Navigation from '../../components/Navigation';
 import CheckoutButton from '../../components/CheckoutButton';
 import SubscribeBanner from '../../components/SubscribeBanner';
 import Link from 'next/link';
 import { getProductBySlug } from '@/lib/stripe-products';
+import { useState } from 'react';
 
 export default function PowerQueueTracker() {
   const product = getProductBySlug('power-queue-tracker');
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   const plans = [
     {
@@ -79,6 +83,30 @@ export default function PowerQueueTracker() {
             <span className="px-4 py-2 bg-green-100 text-green-800 rounded-full text-sm font-medium">
               Live
             </span>
+          </div>
+        </div>
+      </section>
+
+      {/* Trust Bar */}
+      <section className="py-8 px-4 sm:px-6 lg:px-8 bg-white border-b border-gray-200">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            <div>
+              <div className="text-2xl font-bold text-blue-600 mb-1">5,000+ MW</div>
+              <div className="text-sm text-gray-600">tracked weekly</div>
+            </div>
+            <div>
+              <div className="text-2xl font-bold text-blue-600 mb-1">Daily</div>
+              <div className="text-sm text-gray-600">ERCOT queue data updated</div>
+            </div>
+            <div>
+              <div className="text-2xl font-bold text-blue-600 mb-1">14-day free trial</div>
+              <div className="text-sm text-gray-600">no card required</div>
+            </div>
+            <div>
+              <div className="text-2xl font-bold text-blue-600 mb-1">Cancel anytime</div>
+              <div className="text-sm text-gray-600">no fees or penalties</div>
+            </div>
           </div>
         </div>
       </section>
@@ -206,6 +234,64 @@ export default function PowerQueueTracker() {
                     </li>
                   ))}
                 </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">Common Questions</h2>
+          <div className="space-y-4">
+            {[
+              {
+                question: 'What data does Power Queue Tracker monitor?',
+                answer: 'We track the ERCOT generation interconnection queue, including new filings, MW changes, county locations, status updates, and queue position movements.',
+              },
+              {
+                question: 'How is the data delivered?',
+                answer: 'Weekly email digests summarizing what changed, plus access to the live dashboard with full search, filter, and CSV export.',
+              },
+              {
+                question: 'How current is the data?',
+                answer: 'Our pipeline refreshes the ERCOT queue data daily. You'll see changes within 24 hours of ERCOT publishing them.',
+              },
+              {
+                question: 'Can I cancel anytime?',
+                answer: 'Yes. Cancel from your account dashboard anytime with no fees or penalties.',
+              },
+              {
+                question: 'Do you cover PJM or other markets?',
+                answer: 'ERCOT is the current focus. PJM and CAISO are on the roadmap for Q2 2026.',
+              },
+            ].map((faq, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-lg border border-gray-200 overflow-hidden"
+              >
+                <button
+                  onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                  className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors"
+                >
+                  <span className="font-semibold text-gray-900">{faq.question}</span>
+                  <svg
+                    className={`w-5 h-5 text-gray-500 transition-transform ${
+                      openFaq === index ? 'rotate-180' : ''
+                    }`}
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                {openFaq === index && (
+                  <div className="px-6 pb-4 text-gray-600">
+                    {faq.answer}
+                  </div>
+                )}
               </div>
             ))}
           </div>
