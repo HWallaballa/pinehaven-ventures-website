@@ -256,7 +256,7 @@ export default function PowerQueueTracker() {
               },
               {
                 question: 'How current is the data?',
-                answer: 'Our pipeline refreshes the ERCOT queue data daily. You'll see changes within 24 hours of ERCOT publishing them.',
+                answer: "Our pipeline refreshes the ERCOT queue data daily. You'll see changes within 24 hours of ERCOT publishing them.",
               },
               {
                 question: 'Can I cancel anytime?',
