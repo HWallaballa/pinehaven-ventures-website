@@ -36,6 +36,15 @@ const items: ToolkitItem[] = [
     tagColor: 'bg-blue-100 text-blue-800',
     updated: 'February 20, 2026',
   },
+  {
+    title: 'PowerPMIS MVP Implementation Log + Product Scope',
+    href: '/reference/powerpmis-mvp-implementation',
+    description:
+      'Complete delivery log for PowerPMIS website updates, including every implemented route and file path, plus scoped MVP/Phase-2/out-of-scope definitions and capability roadmap mapping (Togal.ai, Destini, ProjectManager, Procore).',
+    tag: 'Delivery Log',
+    tagColor: 'bg-emerald-100 text-emerald-800',
+    updated: 'March 2, 2026',
+  },
 ];
 
 export default function ToolkitPage() {
@@ -53,6 +62,9 @@ export default function ToolkitPage() {
               Reference documents, specs, and strategic plans that guide how
               Pinehaven Ventures operates. These are living documents — updated
               as the business evolves.
+            </p>
+            <p className="text-sm text-gray-500 mt-3">
+              Latest addition: PowerPMIS implementation documentation and product scope definition.
             </p>
           </section>
 

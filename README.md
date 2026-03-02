@@ -17,6 +17,8 @@ npm run dev
 - `/ventures/powerpmis/demo` - PowerPMIS MVP demo
 - `/ventures/crypto-transaction-log` - Crypto Transaction Log product page
 - `/ventures/crypto-transaction-log/demo` - Crypto Transaction Log interactive demo
+- `/toolkit` - Documentation and implementation toolkit hub
+- `/reference/powerpmis-mvp-implementation` - PowerPMIS implementation log and scope
 
 ## PowerPMIS Capability Tracks
 
