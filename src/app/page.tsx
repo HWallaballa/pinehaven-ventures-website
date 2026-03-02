@@ -6,6 +6,13 @@ import LeadCapture from './components/LeadCapture';
 export default function Home() {
   const products = [
     {
+      href: '/ventures/powerpmis',
+      title: 'PowerPMIS',
+      desc: 'Project Management Intelligence System for owners and EPC teams. Move from reality capture to cost allocation and executive reporting in one workflow.',
+      tag: 'MVP Pilot',
+      tagColor: 'bg-yellow-100 text-yellow-800',
+    },
+    {
       href: '/ventures/power-digital',
       title: 'Power Digital Intelligence',
       desc: 'Institutional-grade data center market intelligence. Track power queue positions, capacity, and site selection data across ERCOT and beyond.',
@@ -82,11 +89,11 @@ export default function Home() {
               Our Product Portfolio
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Four live products serving energy markets, data center developers, content creators, and crypto investors.
+              Five products in market: four live SaaS offerings plus one in MVP pilot.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8">
             {products.map((product) => (
               <Link
                 key={product.href}
@@ -121,12 +128,12 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-4 gap-8 text-center">
             <div>
-              <p className="text-3xl font-bold text-gray-900">4</p>
-              <p className="text-gray-600 text-sm mt-1">Live Products</p>
+              <p className="text-3xl font-bold text-gray-900">5</p>
+              <p className="text-gray-600 text-sm mt-1">Products in Portfolio</p>
             </div>
             <div>
-              <p className="text-3xl font-bold text-gray-900">SaaS</p>
-              <p className="text-gray-600 text-sm mt-1">Recurring Revenue</p>
+              <p className="text-3xl font-bold text-gray-900">4 Live + 1 MVP</p>
+              <p className="text-gray-600 text-sm mt-1">Delivery Stage Mix</p>
             </div>
             <div>
               <p className="text-3xl font-bold text-gray-900">B2B + B2C</p>

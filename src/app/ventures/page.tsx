@@ -4,6 +4,27 @@ import Link from 'next/link';
 export default function Ventures() {
   const ventures = [
     {
+      id: 'powerpmis',
+      title: 'PowerPMIS',
+      subtitle: 'Project Management Intelligence System',
+      description: 'PowerPMIS is an end-to-end project controls platform for owners, general contractors, and EPC teams. It connects reality capture, quantity take-off, cost allocation, WBS mapping, and executive reporting so teams can make faster, defensible decisions.',
+      features: [
+        'Reality capture to quantity workflows for field progress',
+        'Rule-based WBS allocation with approval audit trails',
+        'Pilot-ready KPI dashboards for cost and schedule variance',
+        'Export-ready reporting for executives and owners',
+      ],
+      pricing: 'MVP Pilot',
+      pricingColor: 'bg-yellow-100 text-yellow-800',
+      status: 'In Development',
+      statusColor: 'bg-yellow-100 text-yellow-800',
+      icon: (
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 17v-6h4v6m-7 4h10a2 2 0 002-2V7l-6-4-6 4v12a2 2 0 002 2zm12-10h2m-2 4h2m-2 4h2" />
+      ),
+      gradientFrom: 'from-yellow-50',
+      gradientTo: 'to-amber-100',
+    },
+    {
       id: 'power-digital',
       title: 'Power Digital Intelligence',
       subtitle: 'Institutional Data Center Market Intelligence',
@@ -100,8 +121,8 @@ export default function Ventures() {
             Our <span className="text-blue-600">Products</span>
           </h1>
           <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
-            Four live SaaS products serving energy markets, data center developers, content creators, and crypto investors.
-            Each product solves a real problem with a clear path to revenue.
+            Five products spanning energy intelligence, creator automation, crypto operations, and
+            project controls. Four are live in-market and PowerPMIS is advancing through MVP pilot delivery.
           </p>
         </div>
       </section>
@@ -181,8 +202,8 @@ export default function Ventures() {
             Ready to Get Started?
           </h2>
           <p className="text-lg text-gray-600 mb-8">
-            Whether you need energy market intelligence, AI content creation tools, or crypto portfolio tracking,
-            we have a product for you.
+            Whether you need market intelligence, workflow automation, crypto portfolio tracking, or
+            project controls modernization, we have a product roadmap to support you.
           </p>
           <Link
             href="/#contact"
