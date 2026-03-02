@@ -14,7 +14,9 @@ export default function Ventures() {
         'Advanced team collaboration tools',
         'Customizable dashboards and reporting'
       ],
-      status: 'In Development'
+      status: 'In Development',
+      learnMoreHref: '/ventures/powerpmis',
+      learnMoreLabel: 'Explore Full Feature Set'
     },
     {
       id: 'cryptotransactionlog',
@@ -27,7 +29,9 @@ export default function Ventures() {
         'Comprehensive audit trails',
         'Tax reporting and compliance tools'
       ],
-      status: 'Beta Testing'
+      status: 'Beta Testing',
+      learnMoreHref: '/ventures/cryptotransactionlog',
+      learnMoreLabel: 'View Demo Experience'
     },
     {
       id: 'powerdevs',
@@ -55,6 +59,14 @@ export default function Ventures() {
       default:
         return 'bg-gray-100 text-gray-800';
     }
+  };
+
+  const getCtaStyles = (ventureId: string) => {
+    if (ventureId === 'cryptotransactionlog') {
+      return 'bg-emerald-600 hover:bg-emerald-700';
+    }
+
+    return 'bg-blue-600 hover:bg-blue-700';
   };
 
   return (
@@ -106,14 +118,14 @@ export default function Ventures() {
                     </ul>
                   </div>
                   
-                  {/* PowerPMIS Learn More Button */}
-                  {venture.id === 'powerpmis' && (
+                  {/* Venture Detail CTA */}
+                  {venture.learnMoreHref && venture.learnMoreLabel && (
                     <div className="mb-8">
                       <Link
-                        href="/ventures/powerpmis"
-                        className="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors"
+                        href={venture.learnMoreHref}
+                        className={`inline-flex items-center px-6 py-3 text-white rounded-lg font-medium transition-colors ${getCtaStyles(venture.id)}`}
                       >
-                        Explore Full Feature Set
+                        {venture.learnMoreLabel}
                         <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                         </svg>
