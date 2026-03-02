@@ -6,6 +6,7 @@ import { useMemo, useState } from 'react';
 type Phase = 'Capture' | 'Quantities' | 'Allocation' | 'Executive';
 type TaskStatus = 'Done' | 'In Progress' | 'Pending';
 type Severity = 'High' | 'Medium' | 'Low';
+type CapabilityStatus = 'MVP active' | 'In implementation' | 'Integration roadmap';
 
 interface WorkflowTask {
   id: string;
@@ -34,6 +35,14 @@ interface ProjectScenario {
   scanRecency: string;
   workflow: WorkflowTask[];
   exceptions: ExceptionItem[];
+}
+
+interface CapabilityTrack {
+  id: string;
+  benchmark: string;
+  status: CapabilityStatus;
+  mvpReady: string[];
+  nextMilestone: string;
 }
 
 const phases: Phase[] = ['Capture', 'Quantities', 'Allocation', 'Executive'];
@@ -99,6 +108,53 @@ const scenarios: ProjectScenario[] = [
       { id: 'e6', severity: 'High', issue: 'WBS mapping mismatch on package M-14', impact: '$260k at risk', owner: 'Project Controls' },
       { id: 'e7', severity: 'Medium', issue: 'Scan upload backlog', impact: 'Workflow delay on quantity extraction', owner: 'Field Ops' },
     ],
+  },
+];
+
+const capabilityTracks: CapabilityTrack[] = [
+  {
+    id: 'togal',
+    benchmark: 'Togal.ai-like takeoff automation',
+    status: 'MVP active',
+    mvpReady: [
+      'Scan-to-quantity extraction for civil and structural scopes',
+      'Version-to-version delta quantities',
+      'Assembly templates for repeatable estimate packages',
+    ],
+    nextMilestone: 'AI object recognition for auto-tagging scope regions',
+  },
+  {
+    id: 'destini',
+    benchmark: 'Destini-style estimating',
+    status: 'MVP active',
+    mvpReady: [
+      'Scenario-based estimate snapshots',
+      'Cost library mappings linked to quantities',
+      'Approval trail for estimate revisions',
+    ],
+    nextMilestone: 'Risk envelope and probabilistic forecast mode',
+  },
+  {
+    id: 'projectmanager',
+    benchmark: 'ProjectManager-style execution',
+    status: 'In implementation',
+    mvpReady: [
+      'Owner-based phase tasks and status views',
+      'Workflow completion metrics by phase',
+      'Exception queue tied to project controls tasks',
+    ],
+    nextMilestone: 'Resource utilization and critical-path risk indicators',
+  },
+  {
+    id: 'procore',
+    benchmark: 'Procore-aligned field coordination',
+    status: 'Integration roadmap',
+    mvpReady: [
+      'Export-ready issue and budget packets',
+      'Audit history on WBS and cost allocation changes',
+      'Traceability from exception to executive report',
+    ],
+    nextMilestone: 'API sync for RFIs, budget revisions, and document links',
   },
 ];
 
@@ -192,6 +248,35 @@ export default function PowerPMISDemo() {
           valueClass={variance > 0 ? 'text-red-300' : 'text-green-300'}
         />
         <MetricCard label="Completion" value={`${selectedProject.completionPct}%`} hint="Measured from latest capture" />
+      </section>
+
+      <section className="px-4 py-4 border-b border-[#132E4B]">
+        <h2 className="text-sm font-semibold text-[#9DA9B9] uppercase tracking-wide mb-3">
+          Capability Coverage Tracks
+        </h2>
+        <div className="grid lg:grid-cols-2 gap-3">
+          {capabilityTracks.map((track) => (
+            <div key={track.id} className="rounded-xl border border-[#132E4B] bg-[#0B2850] p-4">
+              <div className="flex items-center justify-between gap-3 mb-2">
+                <p className="font-semibold text-white text-sm">{track.benchmark}</p>
+                <span className={`px-2.5 py-1 rounded-full text-xs font-semibold ${capabilityBadge(track.status)}`}>
+                  {track.status}
+                </span>
+              </div>
+              <ul className="space-y-1.5 mb-3">
+                {track.mvpReady.map((item) => (
+                  <li key={item} className="flex items-start gap-2 text-xs text-[#C2D1E1]">
+                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[#3EE5E5]"></span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <p className="text-xs text-[#9DA9B9]">
+                Next milestone: <span className="text-white">{track.nextMilestone}</span>
+              </p>
+            </div>
+          ))}
+        </div>
       </section>
 
       <section className="px-4 py-4 border-b border-[#132E4B]">
@@ -314,5 +399,11 @@ function statusBadge(status: TaskStatus) {
 function severityBadge(severity: Severity) {
   if (severity === 'High') return 'bg-red-500/20 text-red-300';
   if (severity === 'Medium') return 'bg-yellow-500/20 text-yellow-300';
+  return 'bg-blue-500/20 text-blue-300';
+}
+
+function capabilityBadge(status: CapabilityStatus) {
+  if (status === 'MVP active') return 'bg-green-500/20 text-green-300';
+  if (status === 'In implementation') return 'bg-yellow-500/20 text-yellow-300';
   return 'bg-blue-500/20 text-blue-300';
 }

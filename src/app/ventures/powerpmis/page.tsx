@@ -40,6 +40,92 @@ export default function PowerPMIS() {
     { label: 'Reporting Latency', value: '< 24h', detail: 'Executive dashboards refreshed same-day.' },
   ];
 
+  const capabilityRoadmap = [
+    {
+      id: 'togal',
+      platform: 'Togal.ai-like capability set',
+      focus: 'Automated takeoff and quantity intelligence',
+      mvp: [
+        'Capture-driven quantity extraction for core scopes',
+        'Template-based assemblies for repeatable takeoff packages',
+        'Delta takeoff between scan versions',
+      ],
+      nextPhase: [
+        'AI-assisted object segmentation for faster scope tagging',
+        'Recommended assemblies from historical projects',
+      ],
+      status: 'MVP active',
+      statusColor: 'bg-green-100 text-green-800',
+    },
+    {
+      id: 'destini',
+      platform: 'Destini-style estimating coverage',
+      focus: 'Scenario-based estimating and budget control',
+      mvp: [
+        'Cost library driven estimates linked to quantities',
+        'Versioned estimate snapshots with approval history',
+        'What-if comparisons on labor, material, and risk allowances',
+      ],
+      nextPhase: [
+        'Probabilistic forecast bands and risk envelopes',
+        'Cross-project benchmark pricing recommendations',
+      ],
+      status: 'MVP active',
+      statusColor: 'bg-green-100 text-green-800',
+    },
+    {
+      id: 'projectmanager',
+      platform: 'ProjectManager-style delivery controls',
+      focus: 'Task execution, schedule visibility, and team accountability',
+      mvp: [
+        'Phase-based workflow boards for capture, quantities, and allocation',
+        'Owner assignment and status tracking for each control step',
+        'Executive milestone summaries tied to project progress',
+      ],
+      nextPhase: [
+        'Resource loading and critical path indicators',
+        'Team workload balancing and capacity alerts',
+      ],
+      status: 'In implementation',
+      statusColor: 'bg-yellow-100 text-yellow-800',
+    },
+    {
+      id: 'procore',
+      platform: 'Procore-aligned field + office workflow',
+      focus: 'Field coordination, documentation, and system integrations',
+      mvp: [
+        'Exceptions queue with owner assignment and severity',
+        'Audit-ready change history for cost allocation updates',
+        'Export packages compatible with owner and PM workflows',
+      ],
+      nextPhase: [
+        'API sync for RFIs, budget revisions, and submittal context',
+        'Deep links from cost lines to scan locations and field issues',
+      ],
+      status: 'Integration roadmap',
+      statusColor: 'bg-blue-100 text-blue-800',
+    },
+  ];
+
+  const integrationDependencies = [
+    {
+      name: 'Procore API',
+      requirement: 'Client ID/secret and project-level scopes for budgets, RFIs, and documents',
+    },
+    {
+      name: 'Scheduling systems',
+      requirement: 'Primavera P6 or MS Project export feeds for WBS/schedule alignment',
+    },
+    {
+      name: 'Reality data storage',
+      requirement: 'Cloud object storage for LiDAR/drone files and version history',
+    },
+    {
+      name: 'BI/reporting',
+      requirement: 'PowerBI or Excel output channels for executive packs and governance reports',
+    },
+  ];
+
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
@@ -135,6 +221,79 @@ export default function PowerPMIS() {
                 <p className="text-sm text-gray-600">{kpi.detail}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Capability Coverage */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl font-bold text-gray-900 text-center mb-4">
+            Capability Roadmap Against Leading Platforms
+          </h2>
+          <p className="text-gray-600 text-center mb-12 max-w-4xl mx-auto">
+            PowerPMIS is being built to cover critical workflows teams expect from modern takeoff, estimating,
+            project-control, and field-management products. The roadmap below shows what is included in MVP
+            versus planned next-phase expansion.
+          </p>
+          <div className="grid lg:grid-cols-2 gap-6">
+            {capabilityRoadmap.map((track) => (
+              <div key={track.id} className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
+                <div className="flex items-center justify-between gap-3 mb-3">
+                  <h3 className="text-xl font-semibold text-gray-900">{track.platform}</h3>
+                  <span className={`px-2.5 py-1 rounded-full text-xs font-semibold ${track.statusColor}`}>
+                    {track.status}
+                  </span>
+                </div>
+                <p className="text-sm text-blue-700 font-medium mb-4">{track.focus}</p>
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div>
+                    <p className="text-sm font-semibold text-gray-900 mb-2">MVP coverage</p>
+                    <ul className="space-y-2">
+                      {track.mvp.map((item) => (
+                        <li key={item} className="flex items-start gap-2 text-sm text-gray-700">
+                          <span className="mt-1.5 h-2 w-2 rounded-full bg-green-500"></span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold text-gray-900 mb-2">Next phase</p>
+                    <ul className="space-y-2">
+                      {track.nextPhase.map((item) => (
+                        <li key={item} className="flex items-start gap-2 text-sm text-gray-700">
+                          <span className="mt-1.5 h-2 w-2 rounded-full bg-blue-500"></span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Integration Dependencies */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-2xl font-bold text-gray-900 text-center mb-4">
+            External Integration Dependencies
+          </h2>
+          <p className="text-gray-600 text-center mb-8">
+            To fully activate Procore-like and enterprise PM workflows, these external systems and credentials are required.
+          </p>
+          <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
+            <ul className="space-y-4">
+              {integrationDependencies.map((dependency) => (
+                <li key={dependency.name} className="border-b border-gray-100 pb-4 last:border-b-0 last:pb-0">
+                  <p className="text-sm font-semibold text-gray-900">{dependency.name}</p>
+                  <p className="text-sm text-gray-600 mt-1">{dependency.requirement}</p>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
