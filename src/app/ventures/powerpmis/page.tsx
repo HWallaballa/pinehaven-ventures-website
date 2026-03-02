@@ -261,6 +261,85 @@ export default function PowerPMIS() {
     'Actionable insights & collaboration'
   ];
 
+  const demoExperience = [
+    {
+      title: 'Field Capture to Quantities',
+      description: 'Upload a fresh site scan and automatically generate measurable geometry for earthwork, trenching, and slab scopes.',
+      outcomes: [
+        'Detect progress variance between scan versions',
+        'Auto-tag quantity deltas by scope package',
+        'Push validated take-offs to estimator workspace'
+      ]
+    },
+    {
+      title: 'Estimate to WBS Allocation',
+      description: 'Convert validated quantities into line-item estimates and map shared costs to customer-specific WBS structures.',
+      outcomes: [
+        'Apply rule-based cost split strategies',
+        'Track approval ownership per budget revision',
+        'Maintain a full audit trail for allocation changes'
+      ]
+    },
+    {
+      title: 'Executive Portfolio Review',
+      description: 'Surface project-level variances, cash-flow outlook, and scan recency across the active portfolio in one dashboard.',
+      outcomes: [
+        'Flag at-risk scopes before overrun',
+        'Compare project performance against benchmarks',
+        'Export board-ready KPI packs to PowerBI or Excel'
+      ]
+    }
+  ];
+
+  const pilotKpis = [
+    {
+      label: 'Estimate Cycle Time',
+      value: '50% Faster',
+      detail: 'Reduce turnaround from field update to approved estimate package.'
+    },
+    {
+      label: 'Quantity Confidence',
+      value: '>98%',
+      detail: 'Improve consistency between capture-derived and manual measurements.'
+    },
+    {
+      label: 'Change Visibility',
+      value: 'Near Real-Time',
+      detail: 'Automatically flag high-impact scope movement within reporting windows.'
+    },
+    {
+      label: 'Executive Reporting',
+      value: '1 Platform',
+      detail: 'Replace fragmented spreadsheets with a governed portfolio dashboard.'
+    }
+  ];
+
+  const releaseScope = [
+    {
+      title: 'MVP (Current)',
+      badge: 'In Delivery',
+      badgeStyles: 'bg-blue-100 text-blue-800',
+      items: [
+        'Capture ingestion, geo-registration, and scan versioning',
+        'Automated quantity take-offs for core civil/building scopes',
+        'Estimate generation with editable cost libraries',
+        'WBS mapping, allocation rules, and approval audit history',
+        'Executive dashboard exports for pilot portfolios'
+      ]
+    },
+    {
+      title: 'Phase 2 (Roadmap)',
+      badge: 'Planned',
+      badgeStyles: 'bg-indigo-100 text-indigo-800',
+      items: [
+        'Expanded PM integrations (Procore, Primavera, SAP ecosystem)',
+        'Offline/edge workflows for remote construction sites',
+        'Advanced ML forecasting for overrun and schedule risks',
+        'Developer APIs and event-driven extension marketplace'
+      ]
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
@@ -399,6 +478,91 @@ export default function PowerPMIS() {
                 </li>
               ))}
             </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* Demo Experience */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              PowerPMIS Demo Experience
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              The MVP demo follows a practical owner workflow from field reality through budget decisions,
+              using the same structure as the CryptoTransactionLog demo format.
+            </p>
+          </div>
+          <div className="grid lg:grid-cols-3 gap-6">
+            {demoExperience.map((item) => (
+              <div key={item.title} className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
+                <h3 className="text-lg font-semibold text-gray-900 mb-3">{item.title}</h3>
+                <p className="text-gray-600 mb-4">{item.description}</p>
+                <ul className="space-y-2 text-sm text-gray-700">
+                  {item.outcomes.map((outcome) => (
+                    <li key={outcome} className="flex items-start gap-3">
+                      <span className="mt-1.5 h-2 w-2 rounded-full bg-blue-500"></span>
+                      <span>{outcome}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Pilot KPIs and Release Scope */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-8">
+            <div className="bg-white border border-gray-200 rounded-2xl p-8 shadow-sm">
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                Pilot KPI Targets
+              </h2>
+              <p className="text-gray-600 mb-6">
+                These metrics define what MVP success looks like for owners and project controls teams.
+              </p>
+              <div className="grid sm:grid-cols-2 gap-4">
+                {pilotKpis.map((metric) => (
+                  <div key={metric.label} className="border border-gray-200 rounded-xl p-4">
+                    <p className="text-sm font-medium text-gray-500">{metric.label}</p>
+                    <p className="text-2xl font-bold text-gray-900 mt-2 mb-1">{metric.value}</p>
+                    <p className="text-sm text-gray-600">{metric.detail}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="bg-white border border-gray-200 rounded-2xl p-8 shadow-sm">
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                First Release Scope
+              </h2>
+              <p className="text-gray-600 mb-6">
+                Scope boundaries keep delivery realistic while proving measurable ROI during pilots.
+              </p>
+              <div className="space-y-6">
+                {releaseScope.map((phase) => (
+                  <div key={phase.title} className="border border-gray-200 rounded-xl p-5">
+                    <div className="flex items-center justify-between gap-3 mb-3">
+                      <h3 className="text-lg font-semibold text-gray-900">{phase.title}</h3>
+                      <span className={`px-2.5 py-1 rounded-full text-xs font-semibold ${phase.badgeStyles}`}>
+                        {phase.badge}
+                      </span>
+                    </div>
+                    <ul className="space-y-2">
+                      {phase.items.map((item) => (
+                        <li key={item} className="flex items-start gap-3 text-gray-700 text-sm">
+                          <span className="mt-1.5 h-2 w-2 rounded-full bg-blue-500"></span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
