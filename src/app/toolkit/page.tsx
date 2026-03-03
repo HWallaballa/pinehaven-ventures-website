@@ -45,6 +45,42 @@ const items: ToolkitItem[] = [
     tagColor: 'bg-emerald-100 text-emerald-800',
     updated: 'March 2, 2026',
   },
+  {
+    title: 'Architecture & Tech Stack',
+    href: '/reference/architecture-tech-stack',
+    description:
+      'Technical architecture reference — Next.js 16, React 19, Tailwind v4, Stripe SDK, Vercel deployment pipeline, manifest-driven code generation, file map, component inventory, API routes, and environment variables.',
+    tag: 'Engineering Reference',
+    tagColor: 'bg-cyan-100 text-cyan-800',
+    updated: 'March 3, 2026',
+  },
+  {
+    title: 'Product Portfolio & Pricing Matrix',
+    href: '/reference/product-portfolio-pricing',
+    description:
+      'Consolidated business reference for all five ventures — product details, complete pricing matrix across every plan, revenue contribution targets from the 90-day plan, and Stripe configuration mapping.',
+    tag: 'Business Reference',
+    tagColor: 'bg-orange-100 text-orange-800',
+    updated: 'March 3, 2026',
+  },
+  {
+    title: 'Development & Operations Runbook',
+    href: '/reference/development-operations-runbook',
+    description:
+      'Step-by-step procedures for operating the platform — adding new ventures end-to-end, running generators, seeding Stripe, deploying to Vercel, webhook configuration, and troubleshooting common issues.',
+    tag: 'Operations Guide',
+    tagColor: 'bg-green-100 text-green-800',
+    updated: 'March 3, 2026',
+  },
+  {
+    title: 'Site Map & Route Reference',
+    href: '/reference/site-map-routes',
+    description:
+      'Complete inventory of every page, API endpoint, demo, and shared component on the site — with purpose descriptions, category tags, and a component dependency map.',
+    tag: 'Navigation Reference',
+    tagColor: 'bg-indigo-100 text-indigo-800',
+    updated: 'March 3, 2026',
+  },
 ];
 
 export default function ToolkitPage() {
@@ -64,7 +100,7 @@ export default function ToolkitPage() {
               as the business evolves.
             </p>
             <p className="text-sm text-gray-500 mt-3">
-              Latest addition: PowerPMIS implementation documentation and product scope definition.
+              Latest additions: Architecture & Tech Stack, Product Portfolio & Pricing, Operations Runbook, and Site Map references.
             </p>
           </section>
 
