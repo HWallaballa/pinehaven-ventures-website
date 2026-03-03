@@ -3,9 +3,9 @@ import Link from 'next/link';
 import Navigation from '../../components/Navigation';
 
 export const metadata: Metadata = {
-  title: 'Dark Factory Transition Plan (90 Days to $500K) | Pinehaven Ventures',
+  title: 'Dark Factory Transition Plan (90 Days to Profitability) | Pinehaven Ventures',
   description:
-    'Reference document outlining a practical migration plan to a dark factory operating model, including a 90-day scorecard to target $500K in revenue.',
+    'Reference document outlining a practical migration plan to a dark factory operating model, including a 90-day scorecard targeting profitability.',
 };
 
 type ProgramStatus = 'On Track' | 'At Risk' | 'Off Track';
@@ -85,7 +85,7 @@ const ventureProfiles: VentureProfile[] = [
     offer: 'Institutional data center market intelligence and queue analytics',
     pricing: '$10,000/year annual license',
     buyers: 'Data center developers, institutional investors, utilities',
-    contributionTarget: '$250,000',
+    contributionTarget: 'Primary revenue driver',
   },
   {
     name: 'Power Queue Tracker',
@@ -93,7 +93,7 @@ const ventureProfiles: VentureProfile[] = [
     offer: 'ERCOT queue monitoring, digests, alerts, and exports',
     pricing: '$49/$99/$149 monthly plans',
     buyers: 'Developers, consultants, and energy-adjacent teams',
-    contributionTarget: '$110,000',
+    contributionTarget: 'Growth engine',
   },
   {
     name: 'AutoReels.ai',
@@ -101,7 +101,7 @@ const ventureProfiles: VentureProfile[] = [
     offer: 'AI video generation and automated TikTok publishing',
     pricing: '$29/$79/$199 monthly plans',
     buyers: 'Creators, small businesses, and agencies',
-    contributionTarget: '$90,000',
+    contributionTarget: 'Scale channel',
   },
   {
     name: 'Crypto Transaction Log',
@@ -109,7 +109,7 @@ const ventureProfiles: VentureProfile[] = [
     offer: 'Cross-exchange crypto import, organization, and exports',
     pricing: 'Free + $9/month premium',
     buyers: 'Crypto investors and active traders',
-    contributionTarget: '$50,000',
+    contributionTarget: 'Volume funnel',
   },
 ];
 
@@ -150,8 +150,8 @@ const ventureRevenuePlan: VentureRevenuePlan[] = [
   {
     venture: 'Power Digital Intelligence',
     href: '/ventures/power-digital',
-    revenueTarget: '$250,000',
-    weeklyTarget: '$19.2k booked/week (about 2.0 annual licenses per week)',
+    revenueTarget: 'Maximize annual licenses',
+    weeklyTarget: 'Grow booked licenses weekly',
     pricingAnchor: '$10,000 annual license',
     primaryMotion: 'Account-based outbound + investor/developer demos',
     leadingIndicator: 'Qualified demos booked per week and proposal-to-close rate',
@@ -159,8 +159,8 @@ const ventureRevenuePlan: VentureRevenuePlan[] = [
   {
     venture: 'Power Queue Tracker',
     href: '/ventures/power-queue-tracker',
-    revenueTarget: '$110,000',
-    weeklyTarget: '$8.5k booked/week (about $2.1k net new MRR per week)',
+    revenueTarget: 'Grow net new MRR',
+    weeklyTarget: 'Increase net new MRR weekly',
     pricingAnchor: '$49/$99/$149 monthly',
     primaryMotion: 'Digest-led self-serve conversion + enterprise upsell',
     leadingIndicator: 'Net new MRR, activation rate, and weekly churn',
@@ -168,8 +168,8 @@ const ventureRevenuePlan: VentureRevenuePlan[] = [
   {
     venture: 'AutoReels.ai',
     href: '/ventures/autoreels',
-    revenueTarget: '$90,000',
-    weeklyTarget: '$6.9k booked/week (about $1.7k net new MRR per week)',
+    revenueTarget: 'Grow net new MRR',
+    weeklyTarget: 'Increase net new MRR weekly',
     pricingAnchor: '$29/$79/$199 monthly',
     primaryMotion: 'Creator funnel + agency multi-account upgrades',
     leadingIndicator: 'Trial-to-paid conversion and retained weekly publishers',
@@ -177,8 +177,8 @@ const ventureRevenuePlan: VentureRevenuePlan[] = [
   {
     venture: 'Crypto Transaction Log',
     href: '/ventures/crypto-transaction-log',
-    revenueTarget: '$50,000',
-    weeklyTarget: '$3.8k booked/week (about 140 premium upgrades per week)',
+    revenueTarget: 'Grow premium upgrades',
+    weeklyTarget: 'Increase premium conversions weekly',
     pricingAnchor: 'Free + $9 premium',
     primaryMotion: 'Demo-led acquisition + premium upgrade automation',
     leadingIndicator: 'Import success rate and free-to-premium conversion',
@@ -232,18 +232,18 @@ const scorecard: ScorecardMetric[] = [
   {
     metric: 'New booked revenue',
     baseline: '$0 (program baseline)',
-    day30: '$75,000',
-    day60: '$250,000',
-    day90: '$500,000',
+    day30: 'Revenue growing',
+    day60: 'Costs covered',
+    day90: 'Profitable',
     current: 'Update weekly',
     status: 'At Risk',
   },
   {
     metric: 'Cash collected',
     baseline: '$0 (program baseline)',
-    day30: '$40,000',
-    day60: '$150,000',
-    day90: '$320,000',
+    day30: 'Cash flowing',
+    day60: 'Break-even trend',
+    day90: 'Net positive',
     current: 'Update weekly',
     status: 'At Risk',
   },
@@ -346,7 +346,7 @@ export default function DarkFactoryTransitionPlanPage() {
             </p>
             <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight mb-5">
               Dark Factory Transition Plan
-              <span className="text-blue-600">: 90 Days to $500K</span>
+              <span className="text-blue-600">: 90 Days to Profitability</span>
             </h1>
             <p className="text-lg text-gray-700 leading-relaxed mb-4">
               This document is the operating plan to move Pinehaven Ventures toward a dark factory
@@ -449,7 +449,7 @@ export default function DarkFactoryTransitionPlanPage() {
             </h2>
             <p className="text-gray-700 mb-4">
               These are the four live ventures included in the 90-day model. Revenue contributions
-              below roll up to the $500,000 target.
+              below contribute to the profitability target.
             </p>
             <div className="grid gap-4 md:grid-cols-2">
               {ventureProfiles.map((venture) => (
@@ -457,7 +457,7 @@ export default function DarkFactoryTransitionPlanPage() {
                   <div className="flex items-start justify-between gap-3 mb-3">
                     <h3 className="text-lg font-semibold text-gray-900">{venture.name}</h3>
                     <span className="inline-flex px-2.5 py-1 rounded-full text-xs font-semibold bg-blue-100 text-blue-800">
-                      Target: {venture.contributionTarget}
+                      Role: {venture.contributionTarget}
                     </span>
                   </div>
                   <p className="text-sm text-gray-700 mb-2">{venture.offer}</p>
@@ -527,7 +527,7 @@ export default function DarkFactoryTransitionPlanPage() {
 
           <section className="mb-10">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              Revenue plan by venture to reach $500K
+              Revenue plan by venture to reach profitability
             </h2>
             <div className="overflow-x-auto border border-gray-200 rounded-xl bg-white">
               <table className="min-w-full text-left">
@@ -560,7 +560,7 @@ export default function DarkFactoryTransitionPlanPage() {
                     <td className="px-4 py-3 text-sm font-bold text-gray-900" colSpan={2}>
                       Total target
                     </td>
-                    <td className="px-4 py-3 text-sm font-bold text-blue-800">$500,000</td>
+                    <td className="px-4 py-3 text-sm font-bold text-blue-800">Profitability</td>
                     <td className="px-4 py-3 text-sm text-gray-700" colSpan={3}>
                       Updated every weekly operating review
                     </td>
