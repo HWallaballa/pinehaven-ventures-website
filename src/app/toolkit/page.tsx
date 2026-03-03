@@ -22,10 +22,10 @@ const items: ToolkitItem[] = [
     title: 'Dark Factory Transition Plan',
     href: '/reference/dark-factory-transition-plan',
     description:
-      '90-day operating plan to move Pinehaven Ventures toward a dark factory structure — includes revenue targets, sprint backlogs, and a live scorecard for all four ventures.',
+      '90-day operating plan to move Pinehaven Ventures toward a dark factory structure — leveraging an engineering background to automate AI workflows, not vibe code. Includes sprint backlogs, an operating scorecard, and the path to profitability for all four ventures.',
     tag: 'Strategy',
     tagColor: 'bg-purple-100 text-purple-800',
-    updated: 'February 20, 2026',
+    updated: 'March 3, 2026',
   },
   {
     title: 'Stripe Integration Spec',
@@ -58,7 +58,7 @@ const items: ToolkitItem[] = [
     title: 'Product Portfolio & Pricing Matrix',
     href: '/reference/product-portfolio-pricing',
     description:
-      'Consolidated business reference for all five ventures — product details, complete pricing matrix across every plan, revenue contribution targets from the 90-day plan, and Stripe configuration mapping.',
+      'Consolidated business reference for all five ventures — product details, complete pricing matrix across every plan, growth motions with leading indicators, and Stripe configuration mapping.',
     tag: 'Business Reference',
     tagColor: 'bg-orange-100 text-orange-800',
     updated: 'March 3, 2026',

@@ -5,7 +5,7 @@ import Navigation from '../../components/Navigation';
 export const metadata: Metadata = {
   title: 'Product Portfolio & Pricing Matrix | Pinehaven Ventures',
   description:
-    'Consolidated reference for all Pinehaven Ventures products — pricing tiers, target markets, revenue targets, Stripe configuration, and product lifecycle stages.',
+    'Consolidated reference for all Pinehaven Ventures products — pricing tiers, target markets, growth motions, Stripe configuration, and product lifecycle stages.',
 };
 
 type VentureOverview = {
@@ -33,13 +33,12 @@ type PricingRow = {
   popular: boolean;
 };
 
-type RevenueTarget = {
+type GrowthMotion = {
   venture: string;
   href: string;
-  target90Day: string;
-  weeklyTarget: string;
-  pricingAnchor: string;
   primaryMotion: string;
+  leadingIndicator: string;
+  goal: string;
 };
 
 const ventures: VentureOverview[] = [
@@ -127,38 +126,34 @@ const pricingMatrix: PricingRow[] = [
   { venture: 'Crypto Transaction Log', plan: 'Premium', price: '$9', interval: 'month', mode: 'subscription', envKey: 'NEXT_PUBLIC_STRIPE_PRICE_CRYPTO_LOG_PREMIUM', popular: false },
 ];
 
-const revenueTargets: RevenueTarget[] = [
+const growthMotions: GrowthMotion[] = [
   {
     venture: 'Power Digital Intelligence',
     href: '/ventures/power-digital',
-    target90Day: '$250,000',
-    weeklyTarget: '$19.2k/week (~2 annual licenses)',
-    pricingAnchor: '$10,000/year',
     primaryMotion: 'Account-based outbound + investor/developer demos',
+    leadingIndicator: 'Qualified demos booked per week and proposal-to-close rate',
+    goal: 'Grow annual license base to profitability',
   },
   {
     venture: 'Power Queue Tracker',
     href: '/ventures/power-queue-tracker',
-    target90Day: '$110,000',
-    weeklyTarget: '$8.5k/week (~$2.1k net new MRR)',
-    pricingAnchor: '$49/$99/$149 monthly',
     primaryMotion: 'Digest-led self-serve conversion + enterprise upsell',
+    leadingIndicator: 'Net new subscribers, activation rate, and weekly churn',
+    goal: 'Sustain positive subscriber growth trend',
   },
   {
     venture: 'AutoReels.ai',
     href: '/ventures/autoreels',
-    target90Day: '$90,000',
-    weeklyTarget: '$6.9k/week (~$1.7k net new MRR)',
-    pricingAnchor: '$29/$79/$199 monthly',
     primaryMotion: 'Creator funnel + agency multi-account upgrades',
+    leadingIndicator: 'Trial-to-paid conversion and retained weekly publishers',
+    goal: 'Build self-sustaining creator acquisition funnel',
   },
   {
     venture: 'Crypto Transaction Log',
     href: '/ventures/crypto-transaction-log',
-    target90Day: '$50,000',
-    weeklyTarget: '$3.8k/week (~140 premium upgrades)',
-    pricingAnchor: 'Free + $9 premium',
     primaryMotion: 'Demo-led acquisition + premium upgrade automation',
+    leadingIndicator: 'Import success rate and free-to-premium conversion',
+    goal: 'Maximize free-to-premium conversion rate',
   },
 ];
 
@@ -179,8 +174,8 @@ export default function ProductPortfolioPricingPage() {
             </h1>
             <p className="text-lg text-gray-700 leading-relaxed mb-4">
               Consolidated view of all Pinehaven Ventures products, pricing tiers, target markets,
-              revenue contribution targets, and Stripe configuration. This is the business-level
-              companion to the Architecture & Tech Stack reference.
+              growth motions, and Stripe configuration. The goal across all ventures is
+              profitability. This is the business-level companion to the Architecture & Tech Stack reference.
             </p>
             <p className="text-sm text-gray-500">
               Last updated: March 3, 2026. All pricing and product data sourced from ventures.json.
@@ -204,8 +199,8 @@ export default function ProductPortfolioPricingPage() {
                 <p className="text-sm text-gray-600 mt-1">Paid pricing plans</p>
               </div>
               <div className="border border-gray-200 rounded-xl p-5 bg-white text-center">
-                <p className="text-3xl font-bold text-gray-900">$500K</p>
-                <p className="text-sm text-gray-600 mt-1">90-day revenue target</p>
+                <p className="text-3xl font-bold text-gray-900">Profitability</p>
+                <p className="text-sm text-gray-600 mt-1">90-day goal</p>
               </div>
             </div>
           </section>
@@ -304,47 +299,38 @@ export default function ProductPortfolioPricingPage() {
             </div>
           </section>
 
-          {/* Revenue targets */}
+          {/* Growth motions */}
           <section className="mb-14">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              Revenue contribution targets (90-day plan)
+              Growth motions by venture
             </h2>
             <p className="text-gray-700 mb-4">
-              From the Dark Factory Transition Plan. Four live ventures contribute to a combined $500K target.
-              PowerPMIS (MVP Pilot) is not yet included in revenue projections.
+              Each venture has a defined path to profitability. The focus is on sustainable customer
+              acquisition and retention, measured by leading indicators rather than fixed targets.
             </p>
             <div className="overflow-x-auto border border-gray-200 rounded-xl bg-white">
               <table className="min-w-full text-left">
                 <thead className="bg-gray-50">
                   <tr>
                     <th className="px-4 py-3 text-sm font-semibold text-gray-700">Venture</th>
-                    <th className="px-4 py-3 text-sm font-semibold text-gray-700">90-day target</th>
-                    <th className="px-4 py-3 text-sm font-semibold text-gray-700">Weekly pace</th>
-                    <th className="px-4 py-3 text-sm font-semibold text-gray-700">Pricing anchor</th>
                     <th className="px-4 py-3 text-sm font-semibold text-gray-700">Primary motion</th>
+                    <th className="px-4 py-3 text-sm font-semibold text-gray-700">Leading indicator</th>
+                    <th className="px-4 py-3 text-sm font-semibold text-gray-700">Goal</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {revenueTargets.map((row) => (
+                  {growthMotions.map((row) => (
                     <tr key={row.venture} className="border-t border-gray-100">
                       <td className="px-4 py-3 text-sm">
                         <Link href={row.href} className="font-semibold text-blue-700 hover:text-blue-800">
                           {row.venture}
                         </Link>
                       </td>
-                      <td className="px-4 py-3 text-sm font-semibold text-blue-700">{row.target90Day}</td>
-                      <td className="px-4 py-3 text-sm text-gray-700">{row.weeklyTarget}</td>
-                      <td className="px-4 py-3 text-sm text-gray-700">{row.pricingAnchor}</td>
                       <td className="px-4 py-3 text-sm text-gray-700">{row.primaryMotion}</td>
+                      <td className="px-4 py-3 text-sm text-gray-700">{row.leadingIndicator}</td>
+                      <td className="px-4 py-3 text-sm text-gray-700">{row.goal}</td>
                     </tr>
                   ))}
-                  <tr className="border-t border-gray-200 bg-blue-50">
-                    <td className="px-4 py-3 text-sm font-bold text-gray-900">Total</td>
-                    <td className="px-4 py-3 text-sm font-bold text-blue-800">$500,000</td>
-                    <td className="px-4 py-3 text-sm text-gray-700" colSpan={3}>
-                      Updated weekly in the Dark Factory operating scorecard
-                    </td>
-                  </tr>
                 </tbody>
               </table>
             </div>
