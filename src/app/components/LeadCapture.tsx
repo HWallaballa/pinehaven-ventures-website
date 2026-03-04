@@ -42,10 +42,10 @@ export default function LeadCapture() {
         ) : (
           <>
             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-              Stay ahead of the power queue.
+              Stay in the loop.
             </h2>
             <p className="text-gray-400 text-lg mb-8 max-w-2xl mx-auto">
-              Free weekly insights on ERCOT interconnection queue changes, data center site selection signals, and power infrastructure trends. No spam. Unsubscribe anytime.
+              Free weekly updates on new product launches, feature releases, and insights across the Pinehaven Ventures portfolio. No spam. Unsubscribe anytime.
             </p>
             <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-4">
               <input
