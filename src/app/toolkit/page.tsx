@@ -22,10 +22,10 @@ const docsAndSpecs: ToolkitItem[] = [
     title: 'Dark Factory Transition Plan',
     href: '/reference/dark-factory-transition-plan',
     description:
-      '90-day operating plan to move Pinehaven Ventures toward a dark factory structure — includes revenue targets, sprint backlogs, and a live scorecard for all four ventures.',
+      '90-day operating plan to move Pinehaven Ventures toward a dark factory structure — leveraging an engineering background to automate AI workflows, not vibe code. Includes sprint backlogs, an operating scorecard, and the path to profitability for all four ventures.',
     tag: 'Strategy',
     tagColor: 'bg-purple-100 text-purple-800',
-    updated: 'February 20, 2026',
+    updated: 'March 3, 2026',
   },
   {
     title: 'Stripe Integration Spec',
@@ -35,6 +35,45 @@ const docsAndSpecs: ToolkitItem[] = [
     tag: 'Engineering Spec',
     tagColor: 'bg-blue-100 text-blue-800',
     updated: 'February 20, 2026',
+  },
+];
+
+const referenceItems: ToolkitItem[] = [
+  {
+    title: 'Architecture & Tech Stack',
+    href: '/reference/architecture-tech-stack',
+    description:
+      'Technical architecture reference — Next.js 16, React 19, Tailwind v4, Stripe SDK, Vercel deployment pipeline, manifest-driven code generation, file map, component inventory, API routes, and environment variables.',
+    tag: 'Engineering Reference',
+    tagColor: 'bg-cyan-100 text-cyan-800',
+    updated: 'March 3, 2026',
+  },
+  {
+    title: 'Product Portfolio & Pricing Matrix',
+    href: '/reference/product-portfolio-pricing',
+    description:
+      'Consolidated business reference for all five ventures — product details, complete pricing matrix across every plan, growth motions with leading indicators, and Stripe configuration mapping.',
+    tag: 'Business Reference',
+    tagColor: 'bg-orange-100 text-orange-800',
+    updated: 'March 3, 2026',
+  },
+  {
+    title: 'Development & Operations Runbook',
+    href: '/reference/development-operations-runbook',
+    description:
+      'Step-by-step procedures for operating the platform — adding new ventures end-to-end, running generators, seeding Stripe, deploying to Vercel, webhook configuration, and troubleshooting common issues.',
+    tag: 'Operations Guide',
+    tagColor: 'bg-green-100 text-green-800',
+    updated: 'March 3, 2026',
+  },
+  {
+    title: 'Site Map & Route Reference',
+    href: '/reference/site-map-routes',
+    description:
+      'Complete inventory of every page, API endpoint, demo, and shared component on the site — with purpose descriptions, category tags, and a component dependency map.',
+    tag: 'Navigation Reference',
+    tagColor: 'bg-indigo-100 text-indigo-800',
+    updated: 'March 3, 2026',
   },
 ];
 
@@ -129,7 +168,7 @@ export default function ToolkitPage() {
               as the business evolves.
             </p>
             <p className="text-sm text-gray-500 mt-3">
-              Latest addition: Product scope documents for all five ventures.
+              Latest additions: Product scope documents for all five ventures, plus architecture, portfolio, runbook, and site map references.
             </p>
           </section>
 
@@ -142,6 +181,20 @@ export default function ToolkitPage() {
             </p>
             <div className="space-y-4">
               {docsAndSpecs.map((item) => (
+                <ToolkitCard key={item.href} item={item} />
+              ))}
+            </div>
+          </section>
+
+          <section className="mb-10">
+            <h2 className="text-2xl font-bold text-gray-900 mb-2">
+              Reference Docs
+            </h2>
+            <p className="text-gray-600 text-sm mb-4">
+              Architecture, operations, and site inventory references.
+            </p>
+            <div className="space-y-4">
+              {referenceItems.map((item) => (
                 <ToolkitCard key={item.href} item={item} />
               ))}
             </div>

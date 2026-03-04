@@ -3,9 +3,9 @@ import Link from 'next/link';
 import Navigation from '../../components/Navigation';
 
 export const metadata: Metadata = {
-  title: 'Dark Factory Transition Plan (90 Days to $500K) | Pinehaven Ventures',
+  title: 'Dark Factory Transition Plan (90 Days to Profitability) | Pinehaven Ventures',
   description:
-    'Reference document outlining a practical migration plan to a dark factory operating model, including a 90-day scorecard to target $500K in revenue.',
+    'Reference document outlining a practical migration plan to a dark factory operating model — leveraging an engineering background to build automated AI workflows that drive each venture toward profitability.',
 };
 
 type ProgramStatus = 'On Track' | 'At Risk' | 'Off Track';
@@ -24,19 +24,8 @@ type VentureProfile = {
   name: string;
   href: string;
   offer: string;
-  pricing: string;
   buyers: string;
-  contributionTarget: string;
-};
-
-type VentureRevenuePlan = {
-  venture: string;
-  href: string;
-  revenueTarget: string;
-  weeklyTarget: string;
-  pricingAnchor: string;
   primaryMotion: string;
-  leadingIndicator: string;
 };
 
 type VentureSprintPlan = {
@@ -83,33 +72,29 @@ const ventureProfiles: VentureProfile[] = [
     name: 'Power Digital Intelligence',
     href: '/ventures/power-digital',
     offer: 'Institutional data center market intelligence and queue analytics',
-    pricing: '$10,000/year annual license',
     buyers: 'Data center developers, institutional investors, utilities',
-    contributionTarget: '$250,000',
+    primaryMotion: 'Account-based outbound + investor/developer demos',
   },
   {
     name: 'Power Queue Tracker',
     href: '/ventures/power-queue-tracker',
     offer: 'ERCOT queue monitoring, digests, alerts, and exports',
-    pricing: '$49/$99/$149 monthly plans',
     buyers: 'Developers, consultants, and energy-adjacent teams',
-    contributionTarget: '$110,000',
+    primaryMotion: 'Digest-led self-serve conversion + enterprise upsell',
   },
   {
     name: 'AutoReels.ai',
     href: '/ventures/autoreels',
     offer: 'AI video generation and automated TikTok publishing',
-    pricing: '$29/$79/$199 monthly plans',
     buyers: 'Creators, small businesses, and agencies',
-    contributionTarget: '$90,000',
+    primaryMotion: 'Creator funnel + agency multi-account upgrades',
   },
   {
     name: 'Crypto Transaction Log',
     href: '/ventures/crypto-transaction-log',
     offer: 'Cross-exchange crypto import, organization, and exports',
-    pricing: 'Free + $9/month premium',
     buyers: 'Crypto investors and active traders',
-    contributionTarget: '$50,000',
+    primaryMotion: 'Demo-led acquisition + premium upgrade automation',
   },
 ];
 
@@ -131,57 +116,18 @@ const transitionPhases = [
       'Route at least 50% of product roadmap items through spec-first automation.',
       'Replace line-by-line code review with scenario result review for non-critical changes.',
       'Launch weekly decision review: approve/hold/reject based on behavioral outcomes only.',
-      'Connect release telemetry to revenue signals (trial starts, conversion, expansion, churn).',
+      'Connect release telemetry to business signals (trial starts, conversion, expansion, churn).',
     ],
   },
   {
     phase: 'Days 61-90',
-    goal: 'Scale output and lock in revenue momentum',
+    goal: 'Scale output and lock in profitability momentum',
     outcomes: [
       'Run 70%+ of implementation volume via dark-factory path (exception: security/compliance hot spots).',
       'Achieve sub-48-hour median spec-to-production cycle time for repeatable feature classes.',
-      'Operate a single executive scorecard that ties delivery throughput to booked and collected revenue.',
-      'Formalize org design for post-90-day operation: staffing model, incentives, and operating cadence.',
+      'Operate a single scorecard that ties delivery throughput to customer acquisition and retention.',
+      'Formalize operating design for post-90-day operation: staffing model, incentives, and cadence.',
     ],
-  },
-];
-
-const ventureRevenuePlan: VentureRevenuePlan[] = [
-  {
-    venture: 'Power Digital Intelligence',
-    href: '/ventures/power-digital',
-    revenueTarget: '$250,000',
-    weeklyTarget: '$19.2k booked/week (about 2.0 annual licenses per week)',
-    pricingAnchor: '$10,000 annual license',
-    primaryMotion: 'Account-based outbound + investor/developer demos',
-    leadingIndicator: 'Qualified demos booked per week and proposal-to-close rate',
-  },
-  {
-    venture: 'Power Queue Tracker',
-    href: '/ventures/power-queue-tracker',
-    revenueTarget: '$110,000',
-    weeklyTarget: '$8.5k booked/week (about $2.1k net new MRR per week)',
-    pricingAnchor: '$49/$99/$149 monthly',
-    primaryMotion: 'Digest-led self-serve conversion + enterprise upsell',
-    leadingIndicator: 'Net new MRR, activation rate, and weekly churn',
-  },
-  {
-    venture: 'AutoReels.ai',
-    href: '/ventures/autoreels',
-    revenueTarget: '$90,000',
-    weeklyTarget: '$6.9k booked/week (about $1.7k net new MRR per week)',
-    pricingAnchor: '$29/$79/$199 monthly',
-    primaryMotion: 'Creator funnel + agency multi-account upgrades',
-    leadingIndicator: 'Trial-to-paid conversion and retained weekly publishers',
-  },
-  {
-    venture: 'Crypto Transaction Log',
-    href: '/ventures/crypto-transaction-log',
-    revenueTarget: '$50,000',
-    weeklyTarget: '$3.8k booked/week (about 140 premium upgrades per week)',
-    pricingAnchor: 'Free + $9 premium',
-    primaryMotion: 'Demo-led acquisition + premium upgrade automation',
-    leadingIndicator: 'Import success rate and free-to-premium conversion',
   },
 ];
 
@@ -204,7 +150,7 @@ const ventureSprintPlan: VentureSprintPlan[] = [
       'Deploy alert-quality scoring and queue anomaly detection to raise trust and reduce false positives.',
     day61to90:
       'Roll out team collaboration and annual prepay experiments optimized for Team and Enterprise plans.',
-    kpi: 'Net new MRR, activation in first 24 hours, and logo churn',
+    kpi: 'Net new subscribers, activation in first 24 hours, and logo churn',
   },
   {
     venture: 'AutoReels.ai',
@@ -229,60 +175,6 @@ const ventureSprintPlan: VentureSprintPlan[] = [
 ];
 
 const scorecard: ScorecardMetric[] = [
-  {
-    metric: 'New booked revenue',
-    baseline: '$0 (program baseline)',
-    day30: '$75,000',
-    day60: '$250,000',
-    day90: '$500,000',
-    current: 'Update weekly',
-    status: 'At Risk',
-  },
-  {
-    metric: 'Cash collected',
-    baseline: '$0 (program baseline)',
-    day30: '$40,000',
-    day60: '$150,000',
-    day90: '$320,000',
-    current: 'Update weekly',
-    status: 'At Risk',
-  },
-  {
-    metric: 'Power Digital annual licenses closed',
-    baseline: 'Current baseline from CRM',
-    day30: '8',
-    day60: '16',
-    day90: '25',
-    current: 'Update weekly',
-    status: 'At Risk',
-  },
-  {
-    metric: 'Power Queue Tracker net new MRR',
-    baseline: 'Current MRR baseline',
-    day30: '+$6,000',
-    day60: '+$18,000',
-    day90: '+$27,000',
-    current: 'Update weekly',
-    status: 'On Track',
-  },
-  {
-    metric: 'AutoReels net new MRR',
-    baseline: 'Current MRR baseline',
-    day30: '+$4,000',
-    day60: '+$12,000',
-    day90: '+$20,000',
-    current: 'Update weekly',
-    status: 'On Track',
-  },
-  {
-    metric: 'Crypto Transaction Log premium upgrades',
-    baseline: 'Current paid premium users',
-    day30: '350',
-    day60: '900',
-    day90: '1,800',
-    current: 'Update weekly',
-    status: 'At Risk',
-  },
   {
     metric: 'Roadmap volume shipped via dark-factory path',
     baseline: '0%',
@@ -319,6 +211,24 @@ const scorecard: ScorecardMetric[] = [
     current: 'Update weekly',
     status: 'On Track',
   },
+  {
+    metric: 'Customer acquisition trend (all ventures)',
+    baseline: 'Current baseline',
+    day30: 'Positive week-over-week',
+    day60: 'Sustained growth',
+    day90: 'Path to profitability confirmed',
+    current: 'Update weekly',
+    status: 'At Risk',
+  },
+  {
+    metric: 'Paid subscriber retention',
+    baseline: 'Current baseline',
+    day30: 'Baseline established',
+    day60: 'Improving trend',
+    day90: 'Healthy retention rates',
+    current: 'Update weekly',
+    status: 'On Track',
+  },
 ];
 
 function statusClass(status: ProgramStatus): string {
@@ -346,17 +256,56 @@ export default function DarkFactoryTransitionPlanPage() {
             </p>
             <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight mb-5">
               Dark Factory Transition Plan
-              <span className="text-blue-600">: 90 Days to $500K</span>
+              <span className="text-blue-600">: 90 Days to Profitability</span>
             </h1>
             <p className="text-lg text-gray-700 leading-relaxed mb-4">
               This document is the operating plan to move Pinehaven Ventures toward a dark factory
-              structure where humans focus on specification quality and outcome evaluation, while AI
-              agents handle implementation and testing execution.
+              structure where an engineering background is leveraged to design and automate AI-driven
+              workflows — not to vibe code, but to build repeatable systems that drive each venture
+              toward profitability.
             </p>
             <p className="text-sm text-gray-500">
-              Last updated: February 20, 2026. Evidence items below are presented as reported public
+              Last updated: March 3, 2026. Evidence items below are presented as reported public
               claims and should be periodically re-validated.
             </p>
+          </section>
+
+          {/* Engineering, not vibe coding */}
+          <section className="mb-10 bg-gray-900 text-white rounded-2xl p-8 sm:p-10">
+            <h2 className="text-2xl font-bold mb-4">
+              This is engineering, not vibe coding
+            </h2>
+            <p className="text-gray-300 leading-relaxed mb-4">
+              The goal of this plan is not to prompt AI into existence and hope for the best. Vibe
+              coding — generating code without understanding what it does — breaks down the moment
+              complexity increases, edge cases appear, or systems need to integrate.
+            </p>
+            <p className="text-gray-300 leading-relaxed mb-4">
+              Pinehaven&apos;s approach is the opposite: use a background in engineering to design the
+              automation itself. That means writing precise specifications, building structured
+              pipelines, defining acceptance scenarios, and evaluating outcomes with the same rigor
+              an engineer applies to any system they build.
+            </p>
+            <div className="grid sm:grid-cols-2 gap-4 mt-6">
+              <div className="bg-gray-800 rounded-xl p-5">
+                <h3 className="text-lg font-semibold text-red-400 mb-2">Vibe coding</h3>
+                <ul className="space-y-2 text-gray-400 text-sm">
+                  <li>Prompt and pray</li>
+                  <li>Accept whatever the model produces</li>
+                  <li>No structured evaluation</li>
+                  <li>Breaks at scale</li>
+                </ul>
+              </div>
+              <div className="bg-gray-800 rounded-xl p-5">
+                <h3 className="text-lg font-semibold text-green-400 mb-2">Engineered automation</h3>
+                <ul className="space-y-2 text-gray-400 text-sm">
+                  <li>Precise specs with acceptance criteria</li>
+                  <li>Structured agent pipelines</li>
+                  <li>Scenario-based evaluation at every stage</li>
+                  <li>Designed by an engineer to scale reliably</li>
+                </ul>
+              </div>
+            </div>
           </section>
 
           <section className="mb-10">
@@ -448,24 +397,20 @@ export default function DarkFactoryTransitionPlanPage() {
               Portfolio this plan is built around
             </h2>
             <p className="text-gray-700 mb-4">
-              These are the four live ventures included in the 90-day model. Revenue contributions
-              below roll up to the $500,000 target.
+              These are the four live ventures included in the 90-day model. The goal across all
+              ventures is profitability — driven by automated workflows that reduce cost-to-ship and
+              accelerate customer acquisition.
             </p>
             <div className="grid gap-4 md:grid-cols-2">
               {ventureProfiles.map((venture) => (
                 <article key={venture.name} className="bg-white border border-gray-200 rounded-xl p-5">
-                  <div className="flex items-start justify-between gap-3 mb-3">
-                    <h3 className="text-lg font-semibold text-gray-900">{venture.name}</h3>
-                    <span className="inline-flex px-2.5 py-1 rounded-full text-xs font-semibold bg-blue-100 text-blue-800">
-                      Target: {venture.contributionTarget}
-                    </span>
-                  </div>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">{venture.name}</h3>
                   <p className="text-sm text-gray-700 mb-2">{venture.offer}</p>
                   <p className="text-sm text-gray-600 mb-1">
-                    <span className="font-semibold text-gray-800">Pricing:</span> {venture.pricing}
+                    <span className="font-semibold text-gray-800">Primary buyers:</span> {venture.buyers}
                   </p>
                   <p className="text-sm text-gray-600 mb-4">
-                    <span className="font-semibold text-gray-800">Primary buyers:</span> {venture.buyers}
+                    <span className="font-semibold text-gray-800">Growth motion:</span> {venture.primaryMotion}
                   </p>
                   <Link
                     href={venture.href}
@@ -490,6 +435,11 @@ export default function DarkFactoryTransitionPlanPage() {
             <h2 className="text-2xl font-bold text-gray-900 mb-4">
               Five Levels of Vibe Coding (Dan Shapiro, early 2026)
             </h2>
+            <p className="text-gray-700 mb-4">
+              This framework is useful context, but Pinehaven&apos;s operating model is not about climbing
+              the vibe coding ladder. It is about applying engineering discipline to AI automation — the
+              human designs the system, the agents execute within it.
+            </p>
             <div className="space-y-4">
               {vibeLevels.map((level) => (
                 <div key={level.level} className="border border-gray-200 rounded-xl p-5 bg-white">
@@ -527,56 +477,11 @@ export default function DarkFactoryTransitionPlanPage() {
 
           <section className="mb-10">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              Revenue plan by venture to reach $500K
-            </h2>
-            <div className="overflow-x-auto border border-gray-200 rounded-xl bg-white">
-              <table className="min-w-full text-left">
-                <thead className="bg-gray-50">
-                  <tr>
-                    <th className="px-4 py-3 text-sm font-semibold text-gray-700">Venture</th>
-                    <th className="px-4 py-3 text-sm font-semibold text-gray-700">Pricing anchor</th>
-                    <th className="px-4 py-3 text-sm font-semibold text-gray-700">90-day target</th>
-                    <th className="px-4 py-3 text-sm font-semibold text-gray-700">Weekly target</th>
-                    <th className="px-4 py-3 text-sm font-semibold text-gray-700">Primary motion</th>
-                    <th className="px-4 py-3 text-sm font-semibold text-gray-700">Leading indicator</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {ventureRevenuePlan.map((row) => (
-                    <tr key={row.venture} className="border-t border-gray-100">
-                      <td className="px-4 py-3 text-sm text-gray-800">
-                        <Link href={row.href} className="font-semibold text-blue-700 hover:text-blue-800">
-                          {row.venture}
-                        </Link>
-                      </td>
-                      <td className="px-4 py-3 text-sm text-gray-700">{row.pricingAnchor}</td>
-                      <td className="px-4 py-3 text-sm font-semibold text-blue-700">{row.revenueTarget}</td>
-                      <td className="px-4 py-3 text-sm text-gray-700">{row.weeklyTarget}</td>
-                      <td className="px-4 py-3 text-sm text-gray-700">{row.primaryMotion}</td>
-                      <td className="px-4 py-3 text-sm text-gray-700">{row.leadingIndicator}</td>
-                    </tr>
-                  ))}
-                  <tr className="border-t border-gray-200 bg-blue-50">
-                    <td className="px-4 py-3 text-sm font-bold text-gray-900" colSpan={2}>
-                      Total target
-                    </td>
-                    <td className="px-4 py-3 text-sm font-bold text-blue-800">$500,000</td>
-                    <td className="px-4 py-3 text-sm text-gray-700" colSpan={3}>
-                      Updated every weekly operating review
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </section>
-
-          <section className="mb-10">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">
               Dark-factory sprint backlog by venture (Days 1-90)
             </h2>
             <p className="text-gray-700 mb-4">
-              Each product gets a dedicated spec backlog so execution speed maps to measurable revenue
-              outcomes instead of generic feature output.
+              Each product gets a dedicated spec backlog so execution speed maps to measurable
+              business outcomes instead of generic feature output.
             </p>
             <div className="overflow-x-auto border border-gray-200 rounded-xl bg-white">
               <table className="min-w-full text-left">
@@ -608,7 +513,8 @@ export default function DarkFactoryTransitionPlanPage() {
             <h2 className="text-2xl font-bold text-gray-900 mb-4">Operating scorecard</h2>
             <p className="text-gray-700 mb-4">
               Update this table weekly. If any metric is marked Off Track for two consecutive weeks,
-              trigger a corrective action sprint.
+              trigger a corrective action sprint. The focus is on operational excellence —
+              profitability follows from consistently shipping quality at speed.
             </p>
             <div className="overflow-x-auto border border-gray-200 rounded-xl bg-white">
               <table className="min-w-full text-left">
@@ -669,7 +575,7 @@ export default function DarkFactoryTransitionPlanPage() {
                   Raise the bar for engineering roles toward product judgment, systems thinking, and
                   evaluation rigor.
                 </li>
-                <li>Adopt tiny, high-output teams with direct ownership of revenue outcomes.</li>
+                <li>Adopt tiny, high-output teams with direct ownership of business outcomes.</li>
               </ul>
             </article>
           </section>
@@ -677,10 +583,10 @@ export default function DarkFactoryTransitionPlanPage() {
           <section className="mb-10 bg-gray-50 border border-gray-200 rounded-xl p-6">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">Weekly operating rhythm</h2>
             <ol className="space-y-2 text-gray-700 list-decimal pl-5">
-              <li>Monday: prioritize spec backlog by expected revenue impact.</li>
+              <li>Monday: prioritize spec backlog by expected business impact.</li>
               <li>Daily: run automated spec-to-ship pipeline and review scenario outcomes.</li>
               <li>Wednesday: inspect at-risk metrics and launch corrective experiments.</li>
-              <li>Friday: executive review of scorecard, release decisions, and revenue movement.</li>
+              <li>Friday: scorecard review, release decisions, and customer acquisition trends.</li>
               <li>End of week: publish a one-page update with wins, misses, and next actions.</li>
             </ol>
           </section>
@@ -689,9 +595,11 @@ export default function DarkFactoryTransitionPlanPage() {
             <h2 className="text-2xl font-bold text-gray-900 mb-4">Unresolved tension to manage</h2>
             <p className="text-gray-700 leading-relaxed">
               The frontier is accelerating while the middle of the market risks falling behind.
-              Success over the next 90 days depends less on model access and more on whether the team
-              can consistently write clear specs, evaluate outcomes honestly, and redesign operating
-              structure around coordination efficiency.
+              Success over the next 90 days depends less on model access and more on whether the
+              engineering foundation is strong enough to consistently produce clear specs, evaluate
+              outcomes honestly, and redesign operating structure around coordination efficiency.
+              The differentiator is not AI access — it is the engineering discipline applied to the
+              automation workflow itself.
             </p>
           </section>
 
@@ -700,7 +608,7 @@ export default function DarkFactoryTransitionPlanPage() {
               Next action: run week-1 baseline instrumentation
             </h2>
             <p className="text-blue-50 leading-relaxed mb-6">
-              Confirm baseline cycle time, defect rate, scenario coverage, and revenue funnel health
+              Confirm baseline cycle time, defect rate, scenario coverage, and customer funnel health
               before launching full dark-factory rollout.
             </p>
             <div className="flex flex-wrap gap-3">
