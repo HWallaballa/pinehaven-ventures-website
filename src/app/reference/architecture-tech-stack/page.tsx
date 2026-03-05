@@ -120,9 +120,9 @@ const envVars: EnvVar[] = [
   { name: 'NEXT_PUBLIC_STRIPE_PRICE_PQT_SOLO', scope: 'client', description: 'Price ID for Power Queue Tracker Solo plan', generated: true },
   { name: 'NEXT_PUBLIC_STRIPE_PRICE_PQT_TEAM', scope: 'client', description: 'Price ID for Power Queue Tracker Team plan', generated: true },
   { name: 'NEXT_PUBLIC_STRIPE_PRICE_PQT_ENTERPRISE', scope: 'client', description: 'Price ID for Power Queue Tracker Enterprise plan', generated: true },
-  { name: 'NEXT_PUBLIC_STRIPE_PRICE_AUTOREELS_STARTER', scope: 'client', description: 'Price ID for AutoReels Starter plan', generated: true },
-  { name: 'NEXT_PUBLIC_STRIPE_PRICE_AUTOREELS_PRO', scope: 'client', description: 'Price ID for AutoReels Pro plan', generated: true },
-  { name: 'NEXT_PUBLIC_STRIPE_PRICE_AUTOREELS_AGENCY', scope: 'client', description: 'Price ID for AutoReels Agency plan', generated: true },
+  { name: 'NEXT_PUBLIC_STRIPE_PRICE_REELPOST_STARTER', scope: 'client', description: 'Price ID for ReelPost Starter plan', generated: true },
+  { name: 'NEXT_PUBLIC_STRIPE_PRICE_REELPOST_PRO', scope: 'client', description: 'Price ID for ReelPost Pro plan', generated: true },
+  { name: 'NEXT_PUBLIC_STRIPE_PRICE_REELPOST_AGENCY', scope: 'client', description: 'Price ID for ReelPost Agency plan', generated: true },
   { name: 'NEXT_PUBLIC_STRIPE_PRICE_CRYPTO_LOG_PREMIUM', scope: 'client', description: 'Price ID for Crypto Transaction Log Premium plan', generated: true },
 ];
 

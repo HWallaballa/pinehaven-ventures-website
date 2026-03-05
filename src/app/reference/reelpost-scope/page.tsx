@@ -3,9 +3,9 @@ import Link from 'next/link';
 import Navigation from '../../components/Navigation';
 
 export const metadata: Metadata = {
-  title: 'AutoReels.ai — Product Scope | Pinehaven Ventures',
+  title: 'ReelPost.ai — Product Scope | Pinehaven Ventures',
   description:
-    'Scope assessment for AutoReels.ai: website deliverables, 3-tier Stripe checkout, gap analysis for the AI video generation and TikTok auto-posting platform, and competitive landscape.',
+    'Scope assessment for ReelPost.ai: website deliverables, 3-tier Stripe checkout, gap analysis for the AI video generation and multi-platform auto-posting platform, and competitive landscape.',
 };
 
 type RouteDeliverable = {
@@ -30,18 +30,18 @@ type CompetitorTrack = {
 
 const routeDeliverables: RouteDeliverable[] = [
   {
-    route: '/ventures/autoreels',
+    route: '/ventures/reelpost',
     purpose: 'Product page with how-it-works, feature grid, 3-tier pricing, and CTA section.',
     status: 'Live on main',
   },
   {
     route: '/ventures',
-    purpose: 'AutoReels.ai card in product portfolio listing.',
+    purpose: 'ReelPost.ai card in product portfolio listing.',
     status: 'Live on main',
   },
   {
     route: '/',
-    purpose: 'Homepage portfolio entry for AutoReels.ai.',
+    purpose: 'Homepage portfolio entry for ReelPost.ai.',
     status: 'Live on main',
   },
 ];
@@ -51,8 +51,8 @@ const scopeDefinition: ScopeBlock[] = [
     title: 'What\'s built (website + checkout)',
     items: [
       'Product landing page with hero and "From $29/month" pricing badge.',
-      'Three-step "How It Works" flow: Describe/Pick Template → AI Generates → Post/Schedule.',
-      'Six feature cards: AI video generation, template library, AI voiceover, multi-account management, smart scheduling, one-click posting.',
+      'Three-step "How It Works" flow: Describe/Pick Template → AI Generates → Post Everywhere/Schedule.',
+      'Six feature cards: AI video generation, template library, AI voiceover, multi-platform accounts, smart scheduling, one-click cross-platform posting.',
       'Three-tier pricing with Stripe Checkout: Starter ($29/mo), Pro ($79/mo, popular), Agency ($199/mo).',
       'CTA section with link to contact form.',
       'Product listed on homepage portfolio grid and ventures listing page.',
@@ -63,11 +63,14 @@ const scopeDefinition: ScopeBlock[] = [
     items: [
       'AI video generation engine — text-to-video pipeline using generative AI models.',
       'TikTok API integration — OAuth authentication, direct posting, and content management.',
+      'YouTube Data API integration — OAuth, Shorts uploading, and channel management.',
+      'Instagram Graph API integration — OAuth, Reels publishing, and account management.',
+      'Facebook Graph API integration — OAuth, Reels publishing, and page management.',
       'Template library system with categorized, pre-built video styles and trending formats.',
       'AI voiceover generation — text-to-speech integration with multiple voice profiles and languages.',
       'Automated caption and hashtag generation from video content.',
-      'Content scheduling engine with optimal time slot suggestions.',
-      'Multi-account dashboard for connecting and managing multiple TikTok accounts.',
+      'Cross-platform scheduling engine with per-platform optimal time slot suggestions.',
+      'Multi-account dashboard for connecting and managing accounts across TikTok, YouTube, Instagram, and Facebook.',
       'Video preview and editing interface before posting.',
       'Usage metering and enforcement (video count limits per plan tier).',
       'User authentication, account management, and billing portal access.',
@@ -76,7 +79,6 @@ const scopeDefinition: ScopeBlock[] = [
   {
     title: 'Out of scope',
     items: [
-      'Instagram Reels, YouTube Shorts, or other social platform support.',
       'Native mobile application (iOS/Android).',
       'White-label or reseller program for agencies to brand as their own.',
       'Custom AI model training on user-provided brand assets.',
@@ -94,8 +96,8 @@ const competitorTracks: CompetitorTrack[] = [
       'Auto-captioning and formatting for social platforms',
     ],
     differentiation: [
-      'Opus Clip focuses on repurposing long-form content; AutoReels generates from text prompts',
-      'AutoReels includes native TikTok posting and multi-account management',
+      'Opus Clip focuses on repurposing long-form content; ReelPost generates from text prompts',
+      'ReelPost includes native multi-platform posting and unified account management',
     ],
     status: 'Direct competitor',
     statusColor: 'bg-red-100 text-red-800',
@@ -108,8 +110,8 @@ const competitorTracks: CompetitorTrack[] = [
       'Template-based video generation',
     ],
     differentiation: [
-      'Pictory/InVideo are general-purpose; AutoReels is TikTok-first',
-      'AutoReels bundles posting, scheduling, and multi-account management',
+      'Pictory/InVideo are general-purpose; ReelPost is short-form-first with multi-platform publishing',
+      'ReelPost bundles cross-platform posting, scheduling, and unified account management',
     ],
     status: 'Niche competitor',
     statusColor: 'bg-yellow-100 text-yellow-800',
@@ -122,8 +124,8 @@ const competitorTracks: CompetitorTrack[] = [
       'Template-based content generation',
     ],
     differentiation: [
-      'CapCut is manual editing; AutoReels is fully AI-generated',
-      'AutoReels handles scheduling and multi-account workflows',
+      'CapCut is manual editing; ReelPost is fully AI-generated',
+      'ReelPost handles cross-platform scheduling and multi-account workflows',
     ],
     status: 'Platform tool',
     statusColor: 'bg-blue-100 text-blue-800',
@@ -136,8 +138,8 @@ const competitorTracks: CompetitorTrack[] = [
       'Template-based video workflows',
     ],
     differentiation: [
-      'Descript is a full production suite; AutoReels is narrow and automated',
-      'AutoReels targets content volume over production quality',
+      'Descript is a full production suite; ReelPost is narrow and automated',
+      'ReelPost targets content volume with multi-platform distribution over production quality',
     ],
     status: 'Adjacent',
     statusColor: 'bg-gray-100 text-gray-800',
@@ -147,13 +149,16 @@ const competitorTracks: CompetitorTrack[] = [
 const dependencies = [
   'AI video generation API (Runway, Pika, or custom model) for text-to-video pipeline.',
   'TikTok API for Business — developer access for OAuth, posting, and account management.',
+  'YouTube Data API v3 — OAuth 2.0, Shorts uploading, and channel management.',
+  'Instagram Graph API — OAuth, Reels publishing, and business account management.',
+  'Facebook Graph API — OAuth, Reels publishing, and page management.',
   'Text-to-speech API with multiple voice profiles and language support.',
   'Cloud video storage and processing infrastructure (encoding, thumbnails, CDN delivery).',
   'Content moderation pipeline to screen generated videos before posting.',
-  'Scheduling and job queue infrastructure for automated posting at optimal times.',
+  'Scheduling and job queue infrastructure for automated posting at optimal times across all platforms.',
 ];
 
-export default function AutoReelsScopePage() {
+export default function ReelPostScopePage() {
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
@@ -165,13 +170,13 @@ export default function AutoReelsScopePage() {
               Toolkit Reference
             </p>
             <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight mb-5">
-              AutoReels.ai
+              ReelPost.ai
               <span className="text-purple-600"> — Product Scope</span>
             </h1>
             <p className="text-lg text-gray-700 leading-relaxed mb-4">
-              Scope assessment for the AI-powered short-form video generation and TikTok auto-posting platform.
-              Covers what&apos;s built on the website today, what&apos;s needed to deliver the full product,
-              and competitive positioning in the AI video creation market.
+              Scope assessment for the AI-powered short-form video generation and multi-platform auto-posting
+              platform. Covers what&apos;s built on the website today, what&apos;s needed to deliver the full
+              product, and competitive positioning in the AI video creation market.
             </p>
             <div className="flex flex-wrap gap-3 mb-4">
               <span className="inline-flex px-3 py-1 rounded-full text-sm font-semibold bg-purple-100 text-purple-800">
@@ -182,17 +187,19 @@ export default function AutoReelsScopePage() {
               </span>
             </div>
             <p className="text-sm text-gray-500">
-              Last updated: March 3, 2026
+              Last updated: March 4, 2026
             </p>
           </section>
 
           <section className="mb-10">
             <h2 className="text-2xl font-bold text-gray-900 mb-2">Product overview</h2>
             <p className="text-gray-600 mb-4">
-              AutoReels.ai is positioned as an AI-powered video creation and TikTok management platform,
-              targeting creators, small businesses, and agencies. The product page features a clear 3-step
-              workflow, feature grid, and 3-tier pricing with Stripe Checkout. The underlying AI video
-              generation engine, TikTok API integration, and scheduling system have not been built.
+              ReelPost.ai is positioned as an AI-powered video creation and multi-platform short-form video
+              management platform, targeting creators, small businesses, and agencies. Users input a text prompt,
+              AI generates a short-form video, and ReelPost auto-posts it to any combination of TikTok, YouTube
+              Shorts, Instagram Reels, and Facebook Reels. The product page features a clear 3-step workflow,
+              feature grid, and 3-tier pricing with Stripe Checkout. The underlying AI video generation engine,
+              platform API integrations, and scheduling system have not been built.
             </p>
           </section>
 
@@ -287,7 +294,7 @@ export default function AutoReelsScopePage() {
           <section className="mb-12 bg-white border border-gray-200 rounded-xl p-6">
             <h2 className="text-2xl font-bold text-gray-900 mb-3">Dependencies &amp; blockers</h2>
             <p className="text-gray-700 mb-4">
-              The following are required to move AutoReels.ai from marketing page to operational product:
+              The following are required to move ReelPost.ai from marketing page to operational product:
             </p>
             <ul className="space-y-2 text-gray-700">
               {dependencies.map((dep) => (
@@ -306,7 +313,7 @@ export default function AutoReelsScopePage() {
             </p>
             <div className="flex flex-wrap gap-3">
               <Link
-                href="/ventures/autoreels"
+                href="/ventures/reelpost"
                 className="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-white text-purple-700 font-semibold hover:bg-purple-100 transition-colors"
               >
                 View Product Page

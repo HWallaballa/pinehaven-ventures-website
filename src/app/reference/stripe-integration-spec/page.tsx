@@ -57,8 +57,8 @@ const productConfigs: ProductStripeConfig[] = [
     ],
   },
   {
-    product: 'AutoReels.ai',
-    href: '/ventures/autoreels',
+    product: 'ReelPost.ai',
+    href: '/ventures/reelpost',
     plans: [
       { name: 'Starter', price: '$29/month', mode: 'subscription', interval: 'monthly' },
       { name: 'Pro', price: '$79/month', mode: 'subscription', interval: 'monthly' },
@@ -149,7 +149,7 @@ const implementationPhases: ImplementationPhase[] = [
     deliverables: [
       'Power Digital: Replace contact CTA with CheckoutButton for annual license.',
       'Power Queue Tracker: Replace all three plan CTAs with CheckoutButtons.',
-      'AutoReels.ai: Replace all three plan CTAs with CheckoutButtons.',
+      'ReelPost.ai: Replace all three plan CTAs with CheckoutButtons.',
       'Crypto Transaction Log: Add Premium upgrade CheckoutButton alongside free tier.',
     ],
     acceptanceScenarios: [
@@ -458,7 +458,7 @@ export default function StripeIntegrationSpecPage() {
 │   ├── ventures/
 │   │   ├── power-digital/page.tsx         # MODIFIED: Add checkout
 │   │   ├── power-queue-tracker/page.tsx   # MODIFIED: Add checkout
-│   │   ├── autoreels/page.tsx             # MODIFIED: Add checkout
+│   │   ├── reelpost/page.tsx              # MODIFIED: Add checkout
 │   │   └── crypto-transaction-log/
 │   │       └── page.tsx                   # MODIFIED: Add checkout
 │   └── reference/

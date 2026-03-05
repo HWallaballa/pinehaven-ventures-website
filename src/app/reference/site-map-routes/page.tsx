@@ -38,7 +38,7 @@ const publicRoutes: RouteEntry[] = [
 const ventureRoutes: RouteEntry[] = [
   { route: '/ventures/power-digital', purpose: 'Power Digital Intelligence product page — hero, features, pricing card, FAQ', type: 'page', category: 'Venture', generated: false },
   { route: '/ventures/power-queue-tracker', purpose: 'Power Queue Tracker product page — hero, features, 3 pricing tiers, FAQ, subscribe banner', type: 'page', category: 'Venture', generated: false },
-  { route: '/ventures/autoreels', purpose: 'AutoReels.ai product page — hero, features, 3 pricing tiers, FAQ', type: 'page', category: 'Venture', generated: false },
+  { route: '/ventures/reelpost', purpose: 'ReelPost.ai product page — hero, features, 3 pricing tiers, FAQ', type: 'page', category: 'Venture', generated: false },
   { route: '/ventures/crypto-transaction-log', purpose: 'Crypto Transaction Log product page — hero, features, free + premium pricing, demo link', type: 'page', category: 'Venture', generated: false },
   { route: '/ventures/powerpmis', purpose: 'PowerPMIS product page — MVP workflow, deliverables, KPIs, roadmap, dependencies', type: 'page', category: 'Venture', generated: false },
 ];
@@ -94,7 +94,7 @@ const componentUsage: ComponentUsage[] = [
   {
     component: 'PricingCard',
     path: 'src/app/components/PricingCard.tsx',
-    usedIn: ['Power Digital page', 'Power Queue Tracker page', 'AutoReels page', 'Crypto Transaction Log page'],
+    usedIn: ['Power Digital page', 'Power Queue Tracker page', 'ReelPost page', 'Crypto Transaction Log page'],
   },
   {
     component: 'LeadCapture',

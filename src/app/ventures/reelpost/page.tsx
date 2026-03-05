@@ -3,18 +3,18 @@ import CheckoutButton from '../../components/CheckoutButton';
 import Link from 'next/link';
 import { getProductBySlug } from '@/lib/stripe-products';
 
-export default function AutoReels() {
-  const product = getProductBySlug('autoreels');
+export default function ReelPost() {
+  const product = getProductBySlug('reelpost');
 
   const plans = [
     {
       name: 'Starter',
       price: 29,
-      priceId: product?.plans.find((p) => p.id === 'autoreels-starter')?.priceId || '',
+      priceId: product?.plans.find((p) => p.id === 'reelpost-starter')?.priceId || '',
       desc: 'For individual creators',
       features: [
         '30 AI videos/month',
-        '1 TikTok account',
+        '2 connected accounts (any platform)',
         'Basic templates',
         'Direct posting',
         'Email support',
@@ -24,13 +24,14 @@ export default function AutoReels() {
       name: 'Pro',
       price: 79,
       popular: true,
-      priceId: product?.plans.find((p) => p.id === 'autoreels-pro')?.priceId || '',
+      priceId: product?.plans.find((p) => p.id === 'reelpost-pro')?.priceId || '',
       desc: 'For serious creators and small businesses',
       features: [
         '100 AI videos/month',
-        '5 TikTok accounts',
+        '10 connected accounts (any platform)',
         'All templates',
         'Smart scheduling',
+        'Cross-platform scheduling',
         'AI voiceover',
         'Priority support',
       ],
@@ -38,14 +39,15 @@ export default function AutoReels() {
     {
       name: 'Agency',
       price: 199,
-      priceId: product?.plans.find((p) => p.id === 'autoreels-agency')?.priceId || '',
+      priceId: product?.plans.find((p) => p.id === 'reelpost-agency')?.priceId || '',
       desc: 'For agencies managing multiple brands',
       features: [
         '500 AI videos/month',
-        'Unlimited TikTok accounts',
+        'Unlimited connected accounts (all platforms)',
         'All templates',
         'Smart scheduling',
         'AI voiceover',
+        'Cross-platform analytics',
         'Priority generation',
         'API access',
         'Dedicated account manager',
@@ -64,11 +66,12 @@ export default function AutoReels() {
             &larr; Back to Products
           </Link>
           <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mt-6 mb-6">
-            AutoReels<span className="text-purple-600">.ai</span>
+            ReelPost<span className="text-purple-600">.ai</span>
           </h1>
           <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
-            Generate stunning short-form videos with AI and auto-post them to TikTok.
-            Schedule content, manage multiple accounts, and grow your audience — all on autopilot.
+            Generate stunning short-form videos with AI and auto-post them to TikTok, YouTube Shorts,
+            Instagram Reels, and Facebook Reels. Schedule content, manage multiple accounts across every
+            platform, and grow your audience — all on autopilot.
           </p>
           <div className="flex items-center justify-center gap-4">
             <span className="px-4 py-2 bg-purple-100 text-purple-800 rounded-full text-sm font-semibold">
@@ -85,7 +88,7 @@ export default function AutoReels() {
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">
-            From Idea to TikTok in 3 Steps
+            From Idea to Every Platform in 3 Steps
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
             {[
@@ -101,8 +104,8 @@ export default function AutoReels() {
               },
               {
                 step: '3',
-                title: 'Post or Schedule',
-                desc: 'Post directly to TikTok with one click, or schedule it for the optimal posting time. Repeat across all your accounts.',
+                title: 'Post Everywhere or Schedule',
+                desc: 'Post directly to TikTok, YouTube Shorts, Instagram Reels, and Facebook Reels with one click — or schedule for optimal times across all your accounts.',
               },
             ].map((item) => (
               <div key={item.step} className="text-center">
@@ -121,10 +124,10 @@ export default function AutoReels() {
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-gray-900 text-center mb-4">
-            Everything You Need to Dominate TikTok
+            Everything You Need to Dominate Short-Form Video
           </h2>
           <p className="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
-            A complete toolkit for AI-powered video creation and TikTok management.
+            A complete toolkit for AI-powered video creation and multi-platform publishing.
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
@@ -144,18 +147,18 @@ export default function AutoReels() {
                 icon: '🎙️',
               },
               {
-                title: 'Multi-Account Management',
-                desc: 'Connect and manage multiple TikTok accounts from one dashboard. Perfect for agencies.',
+                title: 'Multi-Platform Accounts',
+                desc: 'Connect and manage accounts across TikTok, YouTube, Instagram, and Facebook from one dashboard. Perfect for agencies.',
                 icon: '👥',
               },
               {
                 title: 'Smart Scheduling',
-                desc: 'Schedule posts for optimal times. Our system posts automatically so you never miss a slot.',
+                desc: 'Schedule posts for optimal times on each platform. Our system posts automatically so you never miss a slot.',
                 icon: '📅',
               },
               {
-                title: 'One-Click Posting',
-                desc: 'Generated a video you love? Post it to TikTok instantly with a single click.',
+                title: 'One-Click Cross-Platform Posting',
+                desc: 'Generated a video you love? Post it to every platform simultaneously with a single click.',
                 icon: '🚀',
               },
             ].map((feature) => (
@@ -173,7 +176,7 @@ export default function AutoReels() {
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-gray-900 text-center mb-4">Pricing</h2>
-          <p className="text-gray-600 text-center mb-12">Scale your TikTok presence at any budget.</p>
+          <p className="text-gray-600 text-center mb-12">Scale your short-form video presence across every platform.</p>
           <div className="grid md:grid-cols-3 gap-8">
             {plans.map((plan) => (
               <div
@@ -225,10 +228,10 @@ export default function AutoReels() {
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">
-            Ready to Automate Your TikTok?
+            Ready to Automate Your Short-Form Video?
           </h2>
           <p className="text-gray-600 mb-8">
-            Join creators and agencies using AI to produce and post TikTok content at scale.
+            Join creators and agencies using AI to produce and post short-form content across TikTok, YouTube Shorts, Instagram Reels, and Facebook Reels at scale.
           </p>
           <Link
             href="/#contact"

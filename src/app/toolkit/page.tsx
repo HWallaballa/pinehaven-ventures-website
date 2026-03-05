@@ -97,10 +97,10 @@ const productScopeItems: ToolkitItem[] = [
     updated: 'March 3, 2026',
   },
   {
-    title: 'AutoReels.ai — Product Scope',
-    href: '/reference/autoreels-scope',
+    title: 'ReelPost.ai — Product Scope',
+    href: '/reference/reelpost-scope',
     description:
-      'Scope assessment for AutoReels.ai: website deliverables, 3-tier Stripe checkout, gap analysis for the AI video generation and TikTok auto-posting platform, and competitive landscape.',
+      'Scope assessment for ReelPost.ai: website deliverables, 3-tier Stripe checkout, gap analysis for the AI video generation and multi-platform auto-posting platform, and competitive landscape.',
     tag: 'Product Scope',
     tagColor: 'bg-purple-100 text-purple-800',
     updated: 'March 3, 2026',

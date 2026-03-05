@@ -83,9 +83,9 @@ const ventureProfiles: VentureProfile[] = [
     primaryMotion: 'Digest-led self-serve conversion + enterprise upsell',
   },
   {
-    name: 'AutoReels.ai',
-    href: '/ventures/autoreels',
-    offer: 'AI video generation and automated TikTok publishing',
+    name: 'ReelPost.ai',
+    href: '/ventures/reelpost',
+    offer: 'AI video generation and multi-platform short-form video publishing',
     buyers: 'Creators, small businesses, and agencies',
     primaryMotion: 'Creator funnel + agency multi-account upgrades',
   },
@@ -153,7 +153,7 @@ const ventureSprintPlan: VentureSprintPlan[] = [
     kpi: 'Net new subscribers, activation in first 24 hours, and logo churn',
   },
   {
-    venture: 'AutoReels.ai',
+    venture: 'ReelPost.ai',
     day1to30:
       'Create onboarding flow that gets first generated video posted in under 10 minutes for new trials.',
     day31to60:
