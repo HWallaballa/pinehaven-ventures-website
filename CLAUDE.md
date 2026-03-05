@@ -1,124 +1,61 @@
-# Pinehaven Ventures — Dark Factory Agent Instructions
+# CLAUDE.md
 
-## Architecture
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-This is a Next.js 16 app (App Router, React 19, TypeScript, Tailwind v4) that markets and sells four SaaS products via Stripe Checkout.
-
-**Single source of truth:** `ventures.json` in the project root. Every product, plan, price, and feature is defined here. All generated code derives from it.
-
-## Key commands
+## Commands
 
 | Command | Purpose |
 |---|---|
-| `npm run generate` | Read `ventures.json` → regenerate `stripe-products.ts`, `seed-stripe.ts`, `.env.example`, and scaffold new product pages |
-| `npm run generate:dry` | Preview what `generate` would do without writing files |
-| `STRIPE_SECRET_KEY=sk_live_... npm run seed-stripe` | Create products/prices in Stripe and output env vars |
-| `npm run seed-stripe:dry` | Preview what Stripe objects would be created |
+| `npm run dev` | Start dev server with Turbopack (localhost:3000) |
+| `npm run build` | Production build |
+| `npm run lint` | ESLint (next/core-web-vitals + next/typescript) |
+| `npx tsc --noEmit` | TypeScript check (run after any code changes) |
+| `npm run generate` | Read `ventures.json` and regenerate derived files |
+| `npm run generate:dry` | Preview what `generate` would write |
+| `STRIPE_SECRET_KEY=sk_live_... npm run seed-stripe` | Create products/prices in Stripe |
+| `npm run seed-stripe:dry` | Preview Stripe provisioning |
 
-## How to add a new venture (end-to-end)
+## Architecture
 
-This is the standard operating procedure. An AI agent can execute all steps autonomously.
+Next.js 16 App Router, React 19, TypeScript, Tailwind v4 (via `@tailwindcss/postcss`). Stripe Checkout (hosted) for payments — no custom payment forms.
 
-### Step 1: Edit `ventures.json`
+**Path alias:** `@/*` maps to `./src/*`.
 
-Add a new entry to the `ventures` array. Required fields:
+### Single source of truth: `ventures.json`
 
-```json
-{
-  "id": "my-new-app",
-  "name": "My New App",
-  "tagline": "Short value prop",
-  "description": "Longer description for the hero section.",
-  "color": "blue",
-  "icon": "bolt",
-  "status": "live",
-  "target_market": ["Audience 1", "Audience 2"],
-  "features": ["Feature 1", "Feature 2", "Feature 3"],
-  "plans": [
-    {
-      "id": "my-new-app-starter",
-      "name": "Starter",
-      "price": 29,
-      "currency": "usd",
-      "interval": "month",
-      "stripe_env_key": "NEXT_PUBLIC_STRIPE_PRICE_MY_NEW_APP_STARTER",
-      "description": "For individuals",
-      "features": ["Plan feature 1", "Plan feature 2"]
-    }
-  ]
-}
-```
+Every product, plan, price, and feature is defined in `ventures.json` at the project root. The generator (`scripts/generate-from-manifest.ts`) reads it and produces:
 
-**Color options:** green, blue, purple, orange, red, cyan, amber
+- `src/lib/stripe-products.ts` — runtime Stripe config (types + lookup helpers)
+- `scripts/seed-stripe.ts` — Stripe product/price provisioning script
+- `.env.example` — environment variable template
+- `src/app/ventures/<slug>/page.tsx` — scaffolded product pages (only if they don't already exist)
 
-**Free tiers:** Set `price: 0` and omit `stripe_env_key`. Add `"has_free_tier": true` at the venture level.
+**Do not manually edit files marked as generated.** After running `npm run generate`, always run `npx tsc --noEmit` to verify.
 
-### Step 2: Run the generator
+### Key directories
 
-```bash
-npm run generate
-```
+- `src/app/` — Next.js App Router pages and layouts
+- `src/app/components/` — shared UI components (Navigation, ContactForm, PricingCard, CheckoutButton, LeadCapture, SubscribeBanner)
+- `src/app/ventures/` — product marketing pages, each venture gets a folder; some have `/demo` sub-routes with `_components/` for demo-specific client components
+- `src/app/reference/` — internal documentation pages (architecture, roadmaps, scope docs, site map)
+- `src/app/api/stripe/` — API routes: `checkout/`, `portal/`, `webhooks/`
+- `src/app/api/subscribe/` — email subscribe endpoint
+- `src/lib/` — `stripe.ts` (server client), `stripe-client.ts` (client-side `loadStripe`), `stripe-products.ts` (generated config)
 
-This will:
-- Regenerate `src/lib/stripe-products.ts` (adds the new product to the Stripe config)
-- Regenerate `scripts/seed-stripe.ts` (adds the new product to the seed script)
-- Regenerate `.env.example` (adds the new env var placeholders)
-- Scaffold `src/app/ventures/my-new-app/page.tsx` (new product page with checkout buttons)
+### Stripe integration
 
-### Step 3: Review and customize the generated page
+- API routes are generic — they accept any `priceId`, so no changes needed when adding products
+- Webhook events handled: `checkout.session.completed`, `customer.subscription.updated`, `customer.subscription.deleted`, `invoice.payment_succeeded`, `invoice.payment_failed`
+- All Stripe keys go in `.env.local` (gitignored). See `.env.example` for the full list
+- `NEXT_PUBLIC_APP_URL` defaults to `http://localhost:3000` if unset
 
-The generator creates a functional but basic product page. Customize it:
-- Enhance the hero section copy
-- Add "How It Works" steps if relevant
-- Add persona cards for target market
-- Flesh out the features section with descriptions and icons
-- Adjust the pricing card layout if needed
+## How to add a new venture
 
-### Step 4: Seed Stripe (requires live Stripe key)
-
-```bash
-STRIPE_SECRET_KEY=sk_live_... npm run seed-stripe
-```
-
-Copy the output env vars into `.env.local`.
-
-### Step 5: Verify
-
-```bash
-npx tsc --noEmit   # TypeScript check
-npm run build       # Full build
-```
-
-## File map
-
-| File | Generated? | Purpose |
-|---|---|---|
-| `ventures.json` | No (human-edited) | Single source of truth for all ventures |
-| `scripts/generate-from-manifest.ts` | No | Generator script |
-| `scripts/seed-stripe.ts` | **Yes** | Stripe product/price provisioning |
-| `src/lib/stripe-products.ts` | **Yes** | Runtime Stripe config |
-| `src/lib/stripe.ts` | No | Server-side Stripe client |
-| `src/lib/stripe-client.ts` | No | Client-side loadStripe |
-| `.env.example` | **Yes** | Environment variable template |
-| `src/app/ventures/*/page.tsx` | Scaffold only | Product pages (customize after generation) |
-| `src/app/api/stripe/*/route.ts` | No | API routes (generic, no changes needed) |
-| `src/app/components/CheckoutButton.tsx` | No | Reusable checkout trigger |
-| `src/app/components/PricingCard.tsx` | No | Reusable pricing card |
-| `src/app/checkout/*/page.tsx` | No | Success/cancel pages |
-
-## Rules for generated files
-
-- Files marked **Yes** in the "Generated?" column are overwritten by `npm run generate`. Do not edit them manually.
-- Product pages are only scaffolded if they don't already exist. Existing pages are never overwritten.
-- After running the generator, always run `npx tsc --noEmit` to verify.
-
-## Stripe integration details
-
-- **Checkout flow:** Stripe Checkout (hosted) — no custom payment forms
-- **API routes:** Generic — they accept any `priceId`, so no changes needed when adding products
-- **Webhook events handled:** `checkout.session.completed`, `customer.subscription.updated`, `customer.subscription.deleted`, `invoice.payment_succeeded`, `invoice.payment_failed`
-- **Billing portal:** Configured via seed script — customers can update payment, cancel, switch plans
-
-## Environment variables
-
-All Stripe keys go in `.env.local` (gitignored). See `.env.example` for the full list.
+1. Add entry to `ventures.json` `ventures` array with: `id`, `name`, `tagline`, `description`, `color`, `icon`, `status`, `target_market`, `features`, `plans[]`
+   - Color options: green, blue, purple, orange, red, cyan, amber
+   - Free tiers: set `price: 0`, omit `stripe_env_key`, add `"has_free_tier": true` at venture level
+   - Plan fields: `id`, `name`, `price`, `currency`, `interval`, `stripe_env_key`, `description`, `features`
+2. Run `npm run generate`
+3. Customize the scaffolded page at `src/app/ventures/<id>/page.tsx`
+4. Seed Stripe: `STRIPE_SECRET_KEY=sk_live_... npm run seed-stripe` — copy output env vars to `.env.local`
+5. Verify: `npx tsc --noEmit && npm run build`
