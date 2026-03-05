@@ -25,8 +25,8 @@ export default function CheckoutSuccess() {
           </h1>
 
           <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-            Thank you for your purchase. Your subscription is now active and you have full access
-            to your product. A confirmation email has been sent to your email address.
+            Thank you for your purchase. Your subscription is now active.
+            A payment receipt from Stripe has been sent to the email address you provided at checkout.
           </p>
 
           <div className="bg-gray-50 rounded-xl p-6 mb-8 text-left">
@@ -34,15 +34,15 @@ export default function CheckoutSuccess() {
             <ul className="space-y-3 text-gray-700">
               <li className="flex gap-3">
                 <span className="text-green-600 font-bold shrink-0">1.</span>
-                <span>You will receive a confirmation email with your subscription details and invoice.</span>
+                <span>Check your email for a payment receipt from Stripe with your invoice and subscription details.</span>
               </li>
               <li className="flex gap-3">
                 <span className="text-green-600 font-bold shrink-0">2.</span>
-                <span>Our team will reach out within 24 hours to help you get started with onboarding.</span>
+                <span>We are actively building product access and will notify you as soon as your dashboard is ready.</span>
               </li>
               <li className="flex gap-3">
                 <span className="text-green-600 font-bold shrink-0">3.</span>
-                <span>You can manage your subscription, update payment methods, or download invoices from your billing portal.</span>
+                <span>Have questions? Use the contact form below to reach us directly.</span>
               </li>
             </ul>
           </div>

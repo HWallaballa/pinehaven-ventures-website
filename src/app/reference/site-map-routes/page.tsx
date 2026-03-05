@@ -71,6 +71,7 @@ const referenceRoutes: RouteEntry[] = [
   { route: '/reference/product-portfolio-pricing', purpose: 'Product portfolio — all ventures, pricing matrix, revenue targets, Stripe mapping', type: 'page', category: 'Reference', generated: false },
   { route: '/reference/development-operations-runbook', purpose: 'Operations runbook — add ventures, run generators, seed Stripe, deploy, troubleshoot', type: 'page', category: 'Reference', generated: false },
   { route: '/reference/site-map-routes', purpose: 'This document — complete route and component inventory', type: 'page', category: 'Reference', generated: false },
+  { route: '/reference/production-roadmap', purpose: 'Production roadmap — shared infrastructure, build order, per-product Phase 2 milestones, blockers', type: 'page', category: 'Reference', generated: false },
 ];
 
 const apiRoutes: RouteEntry[] = [

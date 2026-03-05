@@ -19,6 +19,15 @@ type ToolkitItem = {
 
 const docsAndSpecs: ToolkitItem[] = [
   {
+    title: 'Production Roadmap',
+    href: '/reference/production-roadmap',
+    description:
+      'Unified roadmap for moving all five products from marketing sites to live SaaS platforms. Covers shared infrastructure (auth, webhooks, billing portal), recommended build order, per-product Phase 2 milestones, and current blockers.',
+    tag: 'Roadmap',
+    tagColor: 'bg-red-100 text-red-800',
+    updated: 'March 5, 2026',
+  },
+  {
     title: 'Dark Factory Transition Plan',
     href: '/reference/dark-factory-transition-plan',
     description:
