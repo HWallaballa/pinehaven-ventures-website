@@ -58,23 +58,23 @@ const products = [
     ]
   },
   {
-    "name": "AutoReels.ai",
-    "description": "AI-powered short-form video generation. Generate stunning short-form videos with AI and auto-post them to TikTok. Schedule content, manage multiple accounts, and grow your audience — all on autopilot.",
+    "name": "ReelPost.ai",
+    "description": "AI-powered multi-platform short-form video generation. Generate stunning short-form videos with AI and auto-post them to TikTok, YouTube Shorts, Instagram Reels, and Facebook Reels. Schedule content, manage multiple accounts across every platform, and grow your audience — all on autopilot.",
     "plans": [
       {
-        "envKey": "NEXT_PUBLIC_STRIPE_PRICE_AUTOREELS_STARTER",
+        "envKey": "NEXT_PUBLIC_STRIPE_PRICE_REELPOST_STARTER",
         "nickname": "Starter",
         "unitAmount": 2900,
         "interval": "month"
       },
       {
-        "envKey": "NEXT_PUBLIC_STRIPE_PRICE_AUTOREELS_PRO",
+        "envKey": "NEXT_PUBLIC_STRIPE_PRICE_REELPOST_PRO",
         "nickname": "Pro",
         "unitAmount": 7900,
         "interval": "month"
       },
       {
-        "envKey": "NEXT_PUBLIC_STRIPE_PRICE_AUTOREELS_AGENCY",
+        "envKey": "NEXT_PUBLIC_STRIPE_PRICE_REELPOST_AGENCY",
         "nickname": "Agency",
         "unitAmount": 19900,
         "interval": "month"

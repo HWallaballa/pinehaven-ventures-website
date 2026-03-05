@@ -27,9 +27,9 @@ export default function Home() {
       tagColor: 'bg-blue-100 text-blue-800',
     },
     {
-      href: '/ventures/autoreels',
-      title: 'AutoReels.ai',
-      desc: 'Generate stunning short-form videos with AI and auto-post to TikTok. Schedule content across multiple accounts on autopilot.',
+      href: '/ventures/reelpost',
+      title: 'ReelPost.ai',
+      desc: 'Generate stunning short-form videos with AI and auto-post to TikTok, YouTube Shorts, Instagram Reels, and Facebook Reels. Schedule content across every platform on autopilot.',
       tag: 'From $29/mo',
       tagColor: 'bg-purple-100 text-purple-800',
     },

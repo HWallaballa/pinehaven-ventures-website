@@ -111,70 +111,72 @@
       ]
     },
     {
-      "id": "autoreels",
-      "name": "AutoReels.ai",
-      "tagline": "AI-powered short-form video generation",
-      "description": "Generate stunning short-form videos with AI and auto-post them to TikTok. Schedule content, manage multiple accounts, and grow your audience — all on autopilot.",
+      "id": "reelpost",
+      "name": "ReelPost.ai",
+      "tagline": "AI-powered multi-platform short-form video generation",
+      "description": "Generate stunning short-form videos with AI and auto-post them to TikTok, YouTube Shorts, Instagram Reels, and Facebook Reels. Schedule content, manage multiple accounts across every platform, and grow your audience — all on autopilot.",
       "color": "purple",
       "icon": "video-camera",
       "status": "live",
       "target_market": ["Creators", "Small businesses", "Agencies"],
       "features": [
         "AI video generation from text prompts",
-        "Multi-account TikTok management",
+        "Multi-platform publishing (TikTok, YouTube Shorts, Instagram Reels, Facebook Reels)",
         "Smart scheduling",
         "AI voiceover & captions",
-        "One-click posting"
+        "One-click cross-platform posting"
       ],
       "plans": [
         {
-          "id": "autoreels-starter",
+          "id": "reelpost-starter",
           "name": "Starter",
           "price": 29,
           "currency": "usd",
           "interval": "month",
-          "stripe_env_key": "NEXT_PUBLIC_STRIPE_PRICE_AUTOREELS_STARTER",
+          "stripe_env_key": "NEXT_PUBLIC_STRIPE_PRICE_REELPOST_STARTER",
           "description": "For individual creators",
           "features": [
             "30 AI videos/month",
-            "1 TikTok account",
+            "2 connected accounts (any platform)",
             "Basic templates",
             "Direct posting",
             "Email support"
           ]
         },
         {
-          "id": "autoreels-pro",
+          "id": "reelpost-pro",
           "name": "Pro",
           "price": 79,
           "currency": "usd",
           "interval": "month",
           "popular": true,
-          "stripe_env_key": "NEXT_PUBLIC_STRIPE_PRICE_AUTOREELS_PRO",
+          "stripe_env_key": "NEXT_PUBLIC_STRIPE_PRICE_REELPOST_PRO",
           "description": "For serious creators and small businesses",
           "features": [
             "100 AI videos/month",
-            "5 TikTok accounts",
+            "10 connected accounts (any platform)",
             "All templates",
             "Smart scheduling",
+            "Cross-platform scheduling",
             "AI voiceover",
             "Priority support"
           ]
         },
         {
-          "id": "autoreels-agency",
+          "id": "reelpost-agency",
           "name": "Agency",
           "price": 199,
           "currency": "usd",
           "interval": "month",
-          "stripe_env_key": "NEXT_PUBLIC_STRIPE_PRICE_AUTOREELS_AGENCY",
+          "stripe_env_key": "NEXT_PUBLIC_STRIPE_PRICE_REELPOST_AGENCY",
           "description": "For agencies managing multiple brands",
           "features": [
             "500 AI videos/month",
-            "Unlimited TikTok accounts",
+            "Unlimited connected accounts (all platforms)",
             "All templates",
             "Smart scheduling",
             "AI voiceover",
+            "Cross-platform analytics",
             "Priority generation",
             "API access",
             "Dedicated account manager"
