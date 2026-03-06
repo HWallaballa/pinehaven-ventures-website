@@ -49,6 +49,14 @@ Every product, plan, price, and feature is defined in `ventures.json` at the pro
 - All Stripe keys go in `.env.local` (gitignored). See `.env.example` for the full list
 - `NEXT_PUBLIC_APP_URL` defaults to `http://localhost:3000` if unset
 
+### Supabase integration
+
+- **Client components:** Use `createClient()` from `@/lib/supabase` — browser client with anon key
+- **Server components:** Use `await createServerClient()` — cookie-based session via `next/headers`
+- **Admin operations:** Use `createServiceClient()` — service role key (server-side only, never expose to client)
+- Environment variables: `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`, `SUPABASE_SERVICE_ROLE_KEY`
+- All Supabase keys go in `.env.local` (gitignored). See `.env.example` for the full list
+
 ## How to add a new venture
 
 1. Add entry to `ventures.json` `ventures` array with: `id`, `name`, `tagline`, `description`, `color`, `icon`, `status`, `target_market`, `features`, `plans[]`
