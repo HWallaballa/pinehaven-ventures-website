@@ -1,7 +1,7 @@
 import { createBrowserClient } from '@supabase/ssr';
 import { createServerClient as createSupabaseServerClient } from '@supabase/ssr';
 import { cookies } from 'next/headers';
-import type { SupabaseClient } from '@supabase/supabase-js';
+import type { SupabaseClient, User } from '@supabase/supabase-js';
 
 /**
  * Create a Supabase client for browser/client components
@@ -79,4 +79,22 @@ export function createServiceClient(): SupabaseClient {
       autoRefreshToken: false,
     },
   });
+}
+
+/**
+ * Get the currently authenticated user in server components
+ * Returns the user object if authenticated, null otherwise
+ *
+ * @example
+ * const user = await getUser();
+ * if (!user) {
+ *   // Handle unauthenticated state
+ * }
+ */
+export async function getUser(): Promise<User | null> {
+  const supabase = await createServerClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  return user;
 }
